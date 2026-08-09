@@ -1,0 +1,101 @@
+hexsha,cve_id,bug_type,description
+959fe01e85b7241e3ec305d657febbe82da16a02,CVE-2024-42238,buffer_overflow,firmware: cs_dsp: Return error if block header overflows file
+35ddf66c65eff93fff91406756ba273600bf61a3,CVE-2025-71128,buffer_overflow,erspan: Initialize options_len before referencing options.
+32ce3bb57b6b402de2aec1012511e7ac4e7449dc,CVE-2024-26807,buffer_overflow,spi: cadence-qspi: fix pointer reference in runtime PM hooks
+9ba2ea6337b4f159aecb177555a6a81da92d302e,CVE-2024-46728,buffer_overflow,drm/amd/display: Check index for aux_rd_interval before using
+7330256268664ea0a7dd5b07a3fed363093477dd,CVE-2024-26915,buffer_overflow,drm/amdgpu: Reset IH OVERFLOW_CLEAR bit
+546362a9ef2ef40b57c6605f14e88ced507f8dd0,CVE-2021-47286,buffer_overflow,bus: mhi: core: Validate channel ID when processing command completions
+31d49ba033095f6e8158c60f69714a500922e0c3,CVE-2023-53369,buffer_overflow,net: dcb: choose correct policy to parse DCB_ATTR_BCN
+ff2e185cf73df480ec69675936c4ee75a445c3e4,CVE-2024-40974,buffer_overflow,powerpc/pseries: Enforce hcall result buffer validity and size
+d10a87a3535cce2b890897914f5d0d83df669c63,CVE-2021-47347,buffer_overflow,wl1251: Fix possible buffer overflow in wl1251_cmd_scan
+7236aae5f81f3efbd93d0601e74fc05994bc2580,CVE-2022-50518,buffer_overflow,parisc: Fix locking in pdc_iodc_print() firmware call
+3ff256751a2853e1ffaa36958ff933ccc98c6cb5,CVE-2023-53432,double_free_uaf,firewire: net: fix use after free in fwnet_finish_incoming_packet()
+5cff1529a2f9b3461a7f5a6e36a86682fc290534,CVE-2026-64601,double_free_uaf,ALSA: us144mkii: capture_urb_complete: redundant usb_anchor_urb corrupts anchor list on each resubmission
+4e076c73e4f6e90816b30fcd4a0d7ab365087255,CVE-2023-51043,double_free_uaf,drm/atomic: Fix potential use-after-free in nonblocking commits
+e07dea3de508cd6950c937cec42de7603190e1ca,CVE-2026-23030,double_free_uaf,phy: rockchip: inno-usb2: Fix a double free bug in rockchip_usb2phy_probe()
+bd5b50b329e850d467e7bcc07b2b6bde3752fbda,CVE-2023-52847,double_free_uaf,media: bttv: fix use after free error due to btv->timeout timer
+7051f6ba968fa69918d72cc26de4d6cf7ea05b90,CVE-2025-68748,double_free_uaf,drm/panthor: Fix UAF race between device unplug and FW event processing
+9950f095d6c875dbe0c9ebfcf972ec88fdf26fc8,CVE-2025-40141,double_free_uaf,Bluetooth: ISO: Fix possible UAF on iso_conn_free
+37f53a2c60d03743e0eacf7a0c01c279776fef4e,CVE-2025-38141,double_free_uaf,dm: fix dm_blk_report_zones
+549f8ffc7b2f7561bea7f90930b6c5104318e87b,CVE-2022-48735,double_free_uaf,ALSA: hda: Fix UAF of leds class devs at unbinding
+d849a2f7309fc0616e79d13b008b0a47e0458b6e,CVE-2026-31471,double_free_uaf,xfrm: iptfs: only publish mode_data after clone setup
+e0da8a8cac74f4b9f577979d131f0d2b88a84487,CVE-2026-46088,improper_input_validation,ALSA: control: Validate buf_len before strnlen() in snd_ctl_elem_init_enum_names()
+aa2f716327be1818e1cb156da8a2844804aaec2f,CVE-2026-63959,improper_input_validation,usb: typec: tcpm/tcpci_maxim: validate header NDO against RX_BYTE_CNT
+0a8cf165566ba55a39fd0f4de172119dd646d39a,CVE-2026-31709,improper_input_validation,smb: client: validate the whole DACL before rewriting it in cifsacl
+0bdc924bfb319fb10d1113cbf091fc26fb7b1f99,CVE-2025-38146,improper_input_validation,net: openvswitch: Fix the dead loop of MPLS parse
+ccaba785821970f422c47770331c7e3271763f17,CVE-2026-63813,improper_input_validation,Revert "f2fs: remove non-uptodate folio from the page cache in move_data_block"
+838c7b8f1f278404d9d684c34a8cb26dc41aaaa1,CVE-2024-38562,improper_input_validation,wifi: nl80211: Avoid address calculations via out of bounds array indexing
+85099c7ce4f9e64c66aa397cd9a37473637ab891,CVE-2024-43842,improper_input_validation,wifi: rtw89: Fix array index mistake in rtw89_sta_info_get_iter()
+04fc7816089c5a32c29a04ec94b998e219dfb946,CVE-2023-53178,improper_input_validation,mm: fix zswap writeback race condition
+3a21ffdbc825e0919db9da0e27ee5ff2cc8a863e,CVE-2023-53395,improper_input_validation,ACPICA: Add AML_NO_OPERAND_RESOLVE flag to Timer
+129fe718819cc5e24ea2f489db9ccd4371f0c6f6,CVE-2025-21778,improper_input_validation,tracing: Do not allow mmap() of persistent ring buffer
+25f1488bdbba63415239ff301fe61a8546140d9f,CVE-2022-48766,integer_overflow,drm/amd/display: Wrap dcn301_calculate_wm_and_dlg for FPU.
+8f098037139b294050053123ab2bc0f819d08932,CVE-2026-23346,integer_overflow,arm64: io: Extract user memory type in ioremap_prot()
+559847f56769037e5b2e0474d3dbff985b98083d,CVE-2025-21997,integer_overflow,xsk: fix an integer overflow in xp_create_and_assign_umem()
+697ba0b6ec4ae04afb67d3911799b5e2043b4455,CVE-2024-49994,integer_overflow,block: fix integer overflow in BLKSECDISCARD
+a9bf3efc33f1fbf88787a277f7349459283c9b95,CVE-2024-43867,integer_overflow,drm/nouveau: prime: fix refcount underflow
+1a4bcdbea4319efeb26cc4b05be859a7867e02dc,CVE-2023-53258,integer_overflow,drm/amd/display: Fix possible underflow for displays with large vblank
+7041101ff6c3073fd8f2e99920f535b111c929cb,CVE-2023-53624,integer_overflow,net/sched: sch_fq: fix integer overflow of "credit"
+699e52180f4231c257821c037ed5c99d5eb0edb8,CVE-2026-31633,integer_overflow,rxrpc: Fix integer overflow in rxgk_verify_response()
+a4a282daf1a190f03790bf163458ea3c8d28d217,CVE-2024-53111,integer_overflow,mm/mremap: fix address wraparound in move_page_tables()
+f828b681d0cd566f86351c0b913e6cb6ed8c7b9c,CVE-2023-53309,integer_overflow,drm/radeon: Fix integer overflow in radeon_cs_parser_init
+89436f4f54125b1297aec1f466efd8acb4ec613d,CVE-2024-35957,logic_error,iommu/vt-d: Fix WARN_ON in iommu probe path
+fc16126cc11d9f507130bf84ab137ee0938c900e,CVE-2026-64477,logic_error,x86;fs/resctrl: Prevent out-of-bounds access while offlining CPU when SNC enabled
+d8794ac20a299b647ba9958f6d657051fc51a540,CVE-2024-50195,logic_error,posix-clock: Fix missing timespec64 check in pc_clock_settime()
+9989e0ca7462c62f93dbc62f684448aa2efb9226,CVE-2025-39784,logic_error,PCI: Fix link speed calculation on retrain failure
+a8d51efb5929ae308895455a3e496b5eca2cd143,CVE-2026-31567,logic_error,PM: sleep: Drop spurious WARN_ON() from pm_restore_gfp_mask()
+4828d207dc5161dc7ddf9a4f6dcfd80c7dd7d20a,CVE-2024-46838,logic_error,userfaultfd: don't BUG_ON() if khugepaged yanks our page table
+0c22d9511cbde746622f8e4c11aaa63fe76d45f9,CVE-2026-52961,logic_error,ceph: fix BUG_ON in __ceph_build_xattrs_blob() due to stale blob size
+1a4f03d22fb655e5f192244fb2c87d8066fcfca2,CVE-2026-53145,logic_error,drm/gem: Try to fix change_handle ioctl; attempt 4
+d6f3e7d564b2309e1f17e709a70eca78d7ca2bb8,CVE-2025-21771,logic_error,sched_ext: Fix incorrect autogroup migration detection
+1e39da974ce621ed874c6d3aaf65ad14848c9f0d,CVE-2025-40295,logic_error,fscrypt: fix left shift underflow when inode->i_blkbits > PAGE_SHIFT
+0220e4fe178c3390eb0291cdb34912d66972db8a,CVE-2023-53002,memory_leak,drm/i915: Fix a memory leak with reused mmap_offset
+74586c6da9ea222a61c98394f2fc0a604748438c,CVE-2026-23335,memory_leak,RDMA/irdma: Fix kernel stack leak in irdma_create_user_ah()
+369f05688911b05216cfcd6ca74473bec87948d7,CVE-2024-53076,memory_leak,iio: gts-helper: Fix memory leaks for the error path of iio_gts_build_avail_scale_table()
+baa6b6068a3f2bf2ed525a1cb37975905dadc658,CVE-2026-64328,memory_leak,usb: gadget: f_fs: Fix DMA fence leak
+7d255ddbbf679aa47e041cbf68520fd985ed2279,CVE-2022-50183,memory_leak,drm/meson: encoder_cvbs: Fix refcount leak in meson_encoder_cvbs_init
+e5a73150776f18547ee685c9f6bfafe549714899,CVE-2025-38567,memory_leak,nfsd: avoid ref leak in nfsd_open_local_fh()
+d38a648d2d6cc7bee11c6f533ff9426a00c2a74c,CVE-2022-49855,memory_leak,net: wwan: iosm: fix memory leak in ipc_pcie_read_bios_cfg
+3755278f078460b021cd0384562977bf2039a57a,CVE-2022-49713,memory_leak,usb: dwc2: Fix memory leak in dwc2_hcd_init
+4d8457fe0eb9c80ff7795cf8a30962128b71d853,CVE-2023-53085,memory_leak,drm/edid: fix info leak when failing to get panel id
+126fb0ce99431126b44a6c360192668c818f641f,CVE-2025-71271,memory_leak,hfsplus: ensure sb->s_fs_info is always cleaned up
+e5ca5d7b4d7c29246d957dc45d63610584ae3a54,CVE-2024-58065,null_pointer_deref,clk: mmp: pxa1908-apbc: Fix NULL vs IS_ERR() check
+588a70177df3b1777484267584ef38ab2ca899a2,CVE-2022-49232,null_pointer_deref,drm/amd/display: Fix a NULL pointer dereference in amdgpu_dm_connector_add_common_modes()
+df1d8abf36ca3681c21a6809eaa9a1e01ef897a6,CVE-2026-43436,null_pointer_deref,ALSA: usb-audio: Check endpoint numbers at parsing Scarlett2 mixer interfaces
+0484e05d048b66d01d1f3c1d2306010bb57d8738,CVE-2024-26767,null_pointer_deref,drm/amd/display: fixed integer types and null check locations
+99af22cd34688cc0d535a1919e0bea4cbc6c1ea1,CVE-2025-38517,null_pointer_deref,lib/alloc_tag: do not acquire non-existent lock in alloc_tag_top_users()
+01e215975fd80af81b5b79f009d49ddd35976c13,CVE-2024-53043,null_pointer_deref,mctp i2c: handle NULL header address
+2d841af23ae8f398c85dd1ff2dc24b5ec8ba4569,CVE-2022-49262,null_pointer_deref,crypto: octeontx2 - remove CONFIG_DM_CRYPT check
+0f525289ff0ddeb380813bd81e0f9bdaaa1c9078,CVE-2022-49070,null_pointer_deref,fbdev: Fix unregistering of framebuffers without device
+187916e6ed9d0c3b3abc27429f7a5f8c936bd1f0,CVE-2023-53248,null_pointer_deref,drm/amdgpu: install stub fence into potential unused fence pointers
+e9075e420a1eb3b52c60f3b95893a55e77419ce8,CVE-2026-31437,null_pointer_deref,netfs: Fix NULL pointer dereference in netfs_unbuffered_write() on retry
+265e98f72bac6c41a4492d3e30a8e5fd22fe0779,CVE-2024-56662,oob_access,acpi: nfit: vmalloc-out-of-bounds Read in acpi_nfit_ctl
+5909bedbed38c558bee7cb6758ceedf9bc3a9194,CVE-2026-53303,oob_access,f2fs: protect extension_list reading with sb_lock in f2fs_sbi_show()
+57f312b955938fc4663f430cb57a71f2414f601b,CVE-2025-39680,oob_access,i2c: rtl9300: Fix out-of-bounds bug in rtl9300_i2c_smbus_xfer
+0e211f6aaa6a00fd0ee0c1eea5498f168c6725e6,CVE-2026-43005,oob_access,hwmon: (tps53679) Fix array access with zero-length block read
+fba404e4b4af4f4f747bb0e41e9fff7d03c7bcc0,CVE-2025-40154,oob_access,ASoC: Intel: bytcr_rt5640: Fix invalid quirk input mapping
+992b54bd083c5bee24ff7cc35991388ab08598c4,CVE-2024-26991,oob_access,KVM: x86/mmu: x86: Don't overflow lpage_info when checking attributes
+b7a0a63f3fed57d413bb857de164ea9c3984bc4e,CVE-2021-47210,oob_access,usb: typec: tipd: Remove WARN_ON in tps6598x_block_read
+0eb8d7b25397330beab8ee62c681975b79f37223,CVE-2025-39786,oob_access,iio: adc: ad7173: fix channels index for syscalib_mode
+d7bd8cf0b348d3edae7bee33e74a32b21668b181,CVE-2026-53038,oob_access,ima_fs: Correctly create securityfs files for unsupported hash algos
+3d8b9d06bd3ac4c6846f5498800b0f5f8062e53b,CVE-2026-31614,oob_access,smb: client: fix off-by-8 bounds check in check_wsl_eas()
+7cd1f5f77925ae905a57296932f0f9ef0dc364f8,CVE-2024-56628,resource_leak,LoongArch: Add architecture specific huge_pte_clear()
+e7d1d4d9ac0dfa40be4c2c8abd0731659869b297,CVE-2022-49915,resource_leak,mISDN: fix possible memory leak in mISDN_register_device()
+ac2b9f34f02052709aea7b34bb2a165e1853eb41,CVE-2022-49860,resource_leak,dmaengine: ti: k3-udma-glue: fix memory leak when register device fail
+e535c23513c63f02f67e3e09e0787907029efeaf,CVE-2026-23170,resource_leak,drm/imx/tve: fix probe device leak
+92978c83bb4eef55d02a6c990c01c423131eefa7,CVE-2026-43394,resource_leak,nfsd: Fix cred ref leak in nfsd_nl_listener_set_doit().
+3357c6e429643231e60447b52ffbb7ac895aca22,CVE-2023-53375,resource_leak,tracing: Free error logs of tracing instances
+0548a13b5a145b16e4da0628b5936baf35f51b43,CVE-2026-23399,resource_leak,nf_tables: nft_dynset: fix possible stateful expression memleak in error path
+ec25e60f9f95464aa11411db31d0906b3fb7b9f2,CVE-2025-71189,resource_leak,dmaengine: dw: dmamux: fix OF node leak on route allocation failure
+4f4aa4aa28142d53f8b06585c478476cfe325cfc,CVE-2024-57841,resource_leak,net: fix memory leak in tcp_conn_request()
+42378a9ca55347102bbf86708776061d8fe3ece2,CVE-2022-49878,resource_leak,bpf; verifier: Fix memory leak in array reallocation for stack state
+2dd59fe0e19e1ab955259978082b62e5751924c7,CVE-2024-56769,uninitialized_use,media: dvb-frontends: dib3000mb: fix uninit-value in dib3000_write_reg
+e98266e823a1fa06fe6499df61aeaac2fd6f7a49,CVE-2026-53029,uninitialized_use,fs/ntfs3: prevent uninitialized lcn caused by zero len
+2a12187d5853d9fd5102278cecef7dac7c8ce7ea,CVE-2023-53341,uninitialized_use,of/fdt: run soc memory setup when early_init_dt_scan_memory fails
+2567daad69cd1107fc0ec29b1615f110d7cf7385,CVE-2025-37887,uninitialized_use,pds_core: handle unsupported PDS_CORE_CMD_FW_CONTROL result
+16ecdab5446f15a61ec88eb0d23d25d009821db0,CVE-2025-38644,uninitialized_use,wifi: mac80211: reject TDLS operations when station is not associated
+f74ca25d6d6629ffd4fd80a1a73037253b57d06b,CVE-2022-50339,uninitialized_use,Bluetooth: avoid hci_dev_test_and_set_flag() in mgmt_init_hdev()
+029778a4fd2c90c2e76a902b797c2348a722f1b8,CVE-2024-53083,uninitialized_use,usb: typec: qcom-pmic: init value of hdr_len/txbuf_len earlier
+f58bab6fd4063913bd8321e99874b8239e9ba726,CVE-2024-46697,uninitialized_use,nfsd: ensure that nfsd4_fattr_args.context is zeroed out
+559c36c5a8d730c49ef805a72b213d3bba155cc8,CVE-2022-48654,uninitialized_use,netfilter: nfnetlink_osf: fix possible bogus match in nf_osf_find()
+75f339d3ecd38cb1ce05357d647189d4a7f7ed08,CVE-2024-57905,uninitialized_use,iio: adc: ti-ads1119: fix information leak in triggered buffer

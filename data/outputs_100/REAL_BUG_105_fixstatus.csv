@@ -1,0 +1,106 @@
+function,file,status,fix_commit
+__cci_ace_get_port,drivers/bus/arm-cci.c,FILE_CHANGED,
+__ethtool_get_ts_info,net/ethtool/common.c,FILE_CHANGED,
+acbel_fsg032_probe,drivers/hwmon/pmbus/acbel-fsg032.c,FILE_CHANGED,
+adm1266_gpio_get,drivers/hwmon/pmbus/adm1266.c,FILE_CHANGED,
+adm1266_gpio_get_multiple,drivers/hwmon/pmbus/adm1266.c,FILE_CHANGED,
+adm8211_tx,drivers/net/wireless/admtek/adm8211.c,FILE_CHANGED,
+aie2_cmd_submit,drivers/accel/amdxdna/aie2_ctx.c,FILE_CHANGED,
+allocinfo_stop,lib/alloc_tag.c,FILE_CHANGED,
+armada_lcd_bind,drivers/gpu/drm/armada/armada_crtc.c,FILE_CHANGED,
+ath10k_htt_rx_h_find_rfc1042,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+ath10k_htt_rx_h_get_pn,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+ath10k_htt_rx_h_undecap_eth,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+ath10k_htt_rx_h_undecap_nwifi,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+ath10k_htt_rx_h_undecap_raw,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+ath10k_htt_rx_proc_rx_frag_ind_hl,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+ath10k_htt_rx_proc_rx_ind_hl,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+ath10k_htt_rx_validate_amsdu,drivers/net/wireless/ath/ath10k/htt_rx.c,FILE_CHANGED,
+audioformat_implicit_fb_quirk,sound/usb/implicit.c,FILE_CHANGED,
+bcm2835_register_pll_divider,drivers/clk/bcm/clk-bcm2835.c,FILE_CHANGED,
+bpa10x_rx_complete,drivers/bluetooth/bpa10x.c,FILE_CHANGED,
+bpa_rs600_probe,drivers/hwmon/pmbus/bpa-rs600.c,FILE_CHANGED,
+btmtk_intr_complete,drivers/bluetooth/btmtk.c,FILE_CHANGED,
+btusb_bulk_complete,drivers/bluetooth/btusb.c,FILE_CHANGED,
+btusb_diag_complete,drivers/bluetooth/btusb.c,FILE_CHANGED,
+btusb_intr_complete,drivers/bluetooth/btusb.c,FILE_CHANGED,
+btusb_isoc_complete,drivers/bluetooth/btusb.c,FILE_CHANGED,
+cxl_fw_prepare,drivers/cxl/core/memdev.c,FILE_CHANGED,
+dce_v11_0_sw_fini,drivers/gpu/drm/amd/amdgpu/dce_v11_0.c,FILE_CHANGED,
+device_register,drivers/base/core.c,FILE_CHANGED,
+fcp_find_fc_interface,sound/usb/fcp.c,FILE_CHANGED,
+fme_pr,drivers/fpga/dfl-fme-pr.c,FILE_CHANGED,
+fsl_dcu_unload,drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c,FILE_CHANGED,
+fsmc_read_page_hwecc,drivers/mtd/nand/raw/fsmc_nand.c,FILE_CHANGED,
+gem_create_obj,drivers/gpu/drm/xen/xen_drm_front_gem.c,FILE_CHANGED,
+ib_nl_process_good_resolve_rsp,drivers/infiniband/core/sa_query.c,FILE_CHANGED,
+ib_sa_classport_info_rec_callback,drivers/infiniband/core/sa_query.c,FILE_CHANGED,
+ib_sa_guidinfo_rec_callback,drivers/infiniband/core/sa_query.c,FILE_CHANGED,
+ib_sa_mcmember_rec_callback,drivers/infiniband/core/sa_query.c,FILE_CHANGED,
+iptfs_clone_state,net/xfrm/xfrm_iptfs.c,FILE_CHANGED,
+isa_bus_init,drivers/base/isa.c,FILE_CHANGED,
+mdio_mux_init,drivers/net/mdio/mdio-mux.c,FILE_CHANGED,
+mode_replace,drivers/gpu/drm/drm_client_modeset.c,FILE_CHANGED,
+mrfld_gpio_get_pinctrl_dev_name,drivers/gpio/gpio-merrifield.c,FILE_CHANGED,
+ni_decompress_file,fs/ntfs3/frecord.c,FILE_CHANGED,
+node_init_node_access,drivers/base/node.c,FILE_CHANGED,
+of_dp_aux_populate_bus,drivers/gpu/drm/display/drm_dp_aux_bus.c,FILE_CHANGED,
+of_fpga_region_parse_ov,drivers/fpga/of-fpga-region.c,FILE_CHANGED,
+omap2_clk_provider_init,drivers/clk/ti/clk.c,FILE_CHANGED,
+scarlett2_find_fc_interface,sound/usb/mixer_scarlett2.c,FILE_CHANGED,
+smb_block_write,drivers/input/rmi4/rmi_smbus.c,FILE_CHANGED,
+snd_usb_parse_datainterval,sound/usb/helper.c,FILE_CHANGED,
+test_multipart_messages,drivers/char/ipmi/ipmi_ssif.c,FILE_CHANGED,
+uaudio_populate_uac_desc,sound/usb/qcom/qc_audio_offload.c,FILE_CHANGED,
+__ceph_setxattr,fs/ceph/xattr.c,FIXED_EXACT,ceph: fix a buffer leak in __ceph_setxattr()
+ata_tdev_add,drivers/ata/libata-transport.c,FIXED_EXACT,ata: libata-transport: fix error handling in ata_tdev_add()
+ath11k_dp_rx_h_undecap_nwifi,drivers/net/wireless/ath/ath11k/dp_rx.c,FIXED_EXACT,wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi
+blkdev_fallocate,block/fops.c,FIXED_EXACT,block: factor out common part in blkdev_fallocate()
+cdx_msi_domain_init,drivers/cdx/cdx_msi.c,FIXED_EXACT,cdx: Fix device node reference leak in cdx_msi_domain_init
+check_wsl_eas,fs/smb/client/smb2inode.c,FIXED_EXACT,smb: client: fix off-by-8 bounds check in check_wsl_eas()
+drm_gem_handle_create_tail,drivers/gpu/drm/drm_gem.c,FIXED_EXACT,drm/gem: Fix race in drm_gem_handle_create_tail()
+drm_gem_object_init,drivers/gpu/drm/drm_gem.c,FIXED_EXACT,drm/gem: Create a drm_gem_object_init_with_mnt() function
+f2fs_sbi_show,fs/f2fs/sysfs.c,FIXED_EXACT,f2fs: protect extension_list reading with sb_lock in f2fs_sbi_show()
+id_mode_to_cifs_acl,fs/smb/client/cifsacl.c,FIXED_EXACT,smb: client: refactor ACL setting control flow in id_mode_to_cifs_acl()
+irdma_create_user_ah,drivers/infiniband/hw/irdma/verbs.c,FIXED_EXACT,RDMA/irdma: Fix kernel stack leak in irdma_create_user_ah()
+ksz_mdio_register,drivers/net/dsa/microchip/ksz_common.c,FIXED_EXACT,net: dsa: microchip: cleanup error handling in ksz_mdio_register
+msm_gem_new,drivers/gpu/drm/msm/msm_gem.c,FIXED_EXACT,drm/msm: Fix fall-through warning in msm_gem_new_impl()
+nfsd_nl_listener_set_doit,fs/nfsd/nfsctl.c,FIXED_EXACT,nfsd: Fix cred ref leak in nfsd_nl_listener_set_doit().
+ntfs_compress_write,fs/ntfs3/file.c,FIXED_EXACT,ntfs3: use folios more in ntfs_compress_write()
+ntfs_fallocate,fs/ntfs3/file.c,FIXED_EXACT,fs/ntfs3: Fixing wrong logic in attr_set_size and ntfs_fallocate
+ntfs_get_block_vbo,fs/ntfs3/inode.c,FIXED_EXACT,ntfs3: convert ntfs_get_block_vbo() to use a folio
+omap_gem_new,drivers/gpu/drm/omapdrm/omap_gem.c,FIXED_EXACT,drm/omap: Fix locking in omap_gem_new_dmabuf()
+parse_sec_desc,fs/smb/server/smbacl.c,FIXED_EXACT,ksmbd: fix out-of-bounds in parse_sec_desc()
+process_rx,drivers/usb/typec/tcpm/tcpci_maxim_core.c,FIXED_EXACT,usb: typec: tcpm/tcpci_maxim: Fix bounds check in process_rx()
+rxgk_verify_response,net/rxrpc/rxgk.c,FIXED_EXACT,rxrpc: Fix leak of rxgk context in rxgk_verify_response()
+rzn1_dmamux_route_allocate,drivers/dma/dw/rzn1-dmamux.c,FIXED_EXACT,dmaengine: dw: dmamux: Fix device reference leak in rzn1_dmamux_route_allocate
+sco_conn_free,net/bluetooth/sco.c,FIXED_EXACT,Bluetooth: SCO: Fix UAF on sco_conn_free
+v4l2_subdev_link_validate,drivers/media/v4l2-core/v4l2-subdev.c,FIXED_EXACT,media: v4l2-subdev: Support hybrid links in v4l2_subdev_link_validate()
+acpi_button_add,drivers/acpi/button.c,LIKELY_FIXED,ACPI: button: Merge two switch () statements in acpi_button_probe()
+acpi_os_terminate,drivers/acpi/osl.c,LIKELY_FIXED,ACPI: OSL: fix __iomem type on return from acpi_os_map_generic_address()
+amdgpu_bo_fence,drivers/gpu/drm/amd/amdgpu/amdgpu_object.c,LIKELY_FIXED,drm/amdgpu: fix bo->pin leaking in amdgpu_bo_create_reserved
+amdgpu_cs_submit,drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c,LIKELY_FIXED,drm/amdgpu: move debug_vm handling to amdgpu_cs_parser_fini
+ath11k_dp_rx_h_undecap_eth,drivers/net/wireless/ath/ath11k/dp_rx.c,LIKELY_FIXED,wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi
+ath11k_dp_rx_h_undecap_raw,drivers/net/wireless/ath/ath11k/dp_rx.c,LIKELY_FIXED,wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi
+ath11k_dp_rx_h_verify_tkip_mic,drivers/net/wireless/ath/ath11k/dp_rx.c,LIKELY_FIXED,wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi
+attribute_container_add_device,drivers/base/attribute_container.c,LIKELY_FIXED,driver core: attribute_container: change return type to void
+btmtk_usb_wmt_recv,drivers/bluetooth/btmtk.c,LIKELY_FIXED,Bluetooth: btmtk: Fix short read errors in btmtk_usb_reg_read()
+cdv_intel_dp_get_modes,drivers/gpu/drm/gma500/cdv_intel_dp.c,LIKELY_FIXED,drm/gma500/cdv_intel_dp: Demote one unworthy header fix another
+cxl_acpi_qos_class,drivers/cxl/acpi.c,LIKELY_FIXED,cxl/acpi: Remove cxl_acpi_set_cache_size()
+cxl_port_setup_regs,drivers/cxl/core/port.c,LIKELY_FIXED,cxl/port: Reduce number of @dport variables in cxl_port_add_dport()
+dce_v6_0_sw_fini,drivers/gpu/drm/amd/amdgpu/dce_v6_0.c,LIKELY_FIXED,drm/amdgpu: Fix annotation for dce_v6_0_line_buffer_adjust function
+dpu_kms_mmap_mdp5,drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c,LIKELY_FIXED,drm/msm/dpu: cleanup dpu_kms_hw_init error path
+endpoint_set_syncinterval,sound/usb/endpoint.c,LIKELY_FIXED,ALSA: usb-audio: Check shutdown at endpoint_set_interface()
+ethnl_tsinfo_dump_one_net_topo,net/ethtool/tsinfo.c,LIKELY_FIXED,net: ethtool: optionally skip rtnl_lock in ethnl_tsinfo_dumpit()
+ethtool_phy_get_ts_info_by_phc,net/ethtool/common.c,LIKELY_FIXED,net: transfer rtnl_lock() requirement from ethtool_set_ethtool_phy_ops() to caller
+etnaviv_gem_new_handle,drivers/gpu/drm/etnaviv/etnaviv_gem.c,LIKELY_FIXED,drm/etnaviv: Clean up etnaviv_gem_get_pages
+i2c_acpi_space_handler,drivers/i2c/i2c-core-acpi.c,LIKELY_FIXED,i2c: acpi: Return -ENOENT when no resources found in i2c_acpi_client_count()
+iso_sock_kill,net/bluetooth/iso.c,LIKELY_FIXED,Bluetooth: ISO: avoid deadlocks in iso_sock_timeout
+kcs_bmc_ipmi_add_device,drivers/char/ipmi/kcs_bmc_cdev_ipmi.c,LIKELY_FIXED,ipmi: kcs_bmc: Decouple the IPMI chardev from the core
+ma35_nand_read_oob_hwecc,drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c,LIKELY_FIXED,mtd: rawnand: nuvoton: Fix an error handling path in ma35_nand_chips_init()
+ma35_nand_read_page_hwecc,drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c,LIKELY_FIXED,mtd: rawnand: nuvoton: Fix an error handling path in ma35_nand_chips_init()
+mtk_drm_of_get_ddp_ep_cid,drivers/gpu/drm/mediatek/mtk_drm_drv.c,LIKELY_FIXED,drm/mediatek: Fix device/node reference count leaks in mtk_drm_get_all_drm_priv
+nft_dynset_expr_setup,net/netfilter/nft_dynset.c,LIKELY_FIXED,nf_tables: nft_dynset: fix possible stateful expression memleak in error path
+pata_parport_init,drivers/ata/pata_parport/pata_parport.c,LIKELY_FIXED,ata: pata_parport: switch to dynamic root device
+smb2_get_info_sec,fs/smb/server/smb2pdu.c,LIKELY_FIXED,ksmbd: fix out-of-bounds write in smb2_get_ea() EA alignment
+tegra_bo_alloc_object,drivers/gpu/drm/tegra/gem.c,LIKELY_FIXED,drm/tegra: gem: Do not return NULL in tegra_bo_mmap()

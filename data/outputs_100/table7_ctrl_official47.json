@@ -1,0 +1,237 @@
+[
+ {
+  "function": "ax88172_bind",
+  "decision": "yes",
+  "explanation": "The function ignores the return value of usbnet_get_endpoints(dev, intf). If it fails, dev->in/dev->out may not be initialized, but the function continues and later calls asix_write_cmd/asix_read_cmd,"
+ },
+ {
+  "function": "ax88178_bind",
+  "decision": "no",
+  "explanation": ""
+ },
+ {
+  "function": "ax88772_bind",
+  "decision": "no",
+  "explanation": ""
+ },
+ {
+  "function": "qm_get_qos_value",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "altr_sysmgr_regmap_lookup_by_phandle",
+  "decision": "no",
+  "explanation": ""
+ },
+ {
+  "function": "tegra_ahb_enable_smmu",
+  "decision": "no",
+  "explanation": "no: the function properly checks for a missing device and otherwise accesses valid driver data without an obvious memory safety issue."
+ },
+ {
+  "function": "rzn1_dmamux_route_allocate",
+  "decision": "yes",
+  "explanation": "yes: missing null check on pdev from of_find_device_by_node causes null pointer dereference in platform_get_drvdata."
+ },
+ {
+  "function": "tegra210_xusb_padctl_probe",
+  "decision": "yes",
+  "explanation": "The function leaks device node and platform device references: of_parse_phandle() returns a node with an incremented refcount that is never released via of_node_put(), and of_find_device_by_node() ret"
+ },
+ {
+  "function": "gpi_peripheral_config",
+  "decision": "yes",
+  "explanation": "The code uses memcpy on config->peripheral_config without checking that the pointer is a valid kernel memory address or that the buffer size is appropriate. If config is derived from user-controlled d"
+ },
+ {
+  "function": "cpg_mssr_reserved_init",
+  "decision": "no",
+  "explanation": ""
+ },
+ {
+  "function": "iort_rmr_alloc_sids",
+  "decision": "yes",
+  "explanation": "The addition `count + new_count` is performed on u32 values and can overflow, wrapping to a smaller total than the original count. This causes `krealloc_array` to allocate a smaller buffer than intend"
+ },
+ {
+  "function": "add_marker",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "module_frob_arch_sections",
+  "decision": "no",
+  "explanation": "The function is an empty weak stub that simply returns 0 without using its arguments or performing any operations. There is no potential for memory corruption, undefined behavior, or security issues."
+ },
+ {
+  "function": "cdns3_pci_probe",
+  "decision": "yes",
+  "explanation": "The probe function has multiple bugs. Most notably, it returns an uninitialized stack variable `err` when the sibling function is not already enabled, leading to undefined probe status and potential r"
+ },
+ {
+  "function": "cdnsp_pci_probe",
+  "decision": "no",
+  "explanation": ""
+ },
+ {
+  "function": "__cci_ace_get_port",
+  "decision": "yes",
+  "explanation": "The function calls of_parse_phandle() which increments the reference count of the returned device_node, but never calls of_node_put() before any return path. This leaks a reference to the device_node,"
+ },
+ {
+  "function": "amx3_idle_init",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "cdx_msi_domain_init",
+  "decision": "yes",
+  "explanation": "yes: missing of_node_put on parent_node from of_parse_phandle causes a reference leak."
+ },
+ {
+  "function": "imx_pcie_probe",
+  "decision": "yes",
+  "explanation": "The code passes `&pci->max_link_speed`, which is a `u8` field, directly to `of_property_read_u32()`. This function writes a 32-bit value, overflowing the one-byte field and corrupting adjacent memory "
+ },
+ {
+  "function": "omap_usb2_probe",
+  "decision": "yes",
+  "explanation": "The code leaks device references. When it parses the 'ctrl-module' phandle, of_parse_phandle() returns a node reference that is never released with of_node_put(). Also, of_find_device_by_node() return"
+ },
+ {
+  "function": "rcar_drif_bond_enabled",
+  "decision": "yes",
+  "explanation": "The function calls of_parse_phandle() which increments the reference count of the returned device node. If the node is present but not available (of_device_is_available returns false), the function re"
+ },
+ {
+  "function": "simplefb_get_memory_of",
+  "decision": "yes",
+  "explanation": "The function leaks a reference to the device_node obtained from of_parse_phandle by not calling of_node_put(np) in any path, leading to a memory leak that can be repeatedly triggered."
+ },
+ {
+  "function": "thermal_of_cm_lookup",
+  "decision": "yes",
+  "explanation": "of_parse_phandle() increments the refcount of the returned device_node. The code never calls of_node_put() on tr_np, neither when it does not match trip->priv nor when it does or before returning. Thi"
+ },
+ {
+  "function": "vexpress_syscfg_probe",
+  "decision": "no",
+  "explanation": "The code does not contain a security vulnerability. The only notable issue is a missing of_node_put() for the bridge_np returned by of_parse_phandle(), which causes a minor reference leak, but it is n"
+ },
+ {
+  "function": "drm_debugfs_remove_files",
+  "decision": "yes",
+  "explanation": "The function calls debugfs_lookup() to obtain a dentry but omits the required dput() call, causing a reference/dentry leak. More critically, it frees the inode's i_private data with drmm_kfree() befor"
+ },
+ {
+  "function": "hisi_acc_vfio_debug_init",
+  "decision": "yes",
+  "explanation": "yes: missing dput() on the debugfs_lookup() result leaks a refcount, enabling a memory leak dos."
+ },
+ {
+  "function": "iwl_mld_add_link_debugfs",
+  "decision": "yes",
+  "explanation": "The code calls debugfs_lookup() to check for the \"iwlmld\" directory, but if the lookup succeeds it never releases the returned dentry reference with dput()/debugfs_put(). This causes a kernel memory/r"
+ },
+ {
+  "function": "margining_port_init",
+  "decision": "no",
+  "explanation": "The code does not contain a vulnerability. snprintf correctly bounds the output to the 10-byte dir_name buffer, so there is no buffer overflow even if port->port is large. debugfs_lookup safely handle"
+ },
+ {
+  "function": "mv88e6xxx_port_setup_leds",
+  "decision": "no",
+  "explanation": "The function contains no operations, no memory accesses, and no external interactions. It simply returns 0, so there is no vulnerability."
+ },
+ {
+  "function": "mvpp2_use_acpi_compat_mode",
+  "decision": "yes",
+  "explanation": "The function calls fwnode_get_named_child_node() which returns a reference-counted fwnode handle. The returned reference is never released via fwnode_handle_put(), causing a reference leak whenever a "
+ },
+ {
+  "function": "mtk_dp_dt_parse",
+  "decision": "no",
+  "explanation": "no: the code safely handles the null endpoint via of_property_count_elems_of_size and checks return values, though it leaks the endpoint reference."
+ },
+ {
+  "function": "samsung_dsim_parse_dt",
+  "decision": "yes",
+  "explanation": "The function calls of_graph_get_endpoint_by_regs() without checking if the returned endpoint is NULL. If no endpoint is found, the subsequent calls of_property_count_u32_elems(endpoint, ...) and of_pr"
+ },
+ {
+  "function": "sii902x_probe",
+  "decision": "yes",
+  "explanation": "The code leaks a reference to the device node returned by of_graph_get_endpoint_by_regs() for port 0, because of_node_put(endpoint) is never called after reading the bus-width property. This device no"
+ },
+ {
+  "function": "sun4i_tcon_of_get_id_from_port",
+  "decision": "yes",
+  "explanation": "The function calls of_graph_get_remote_endpoint() which increments the reference count of the returned device node, but the code never calls of_node_put() on that node. This causes a reference count l"
+ },
+ {
+  "function": "qcom_slim_ngd_notify_slaves",
+  "decision": "no",
+  "explanation": "no: the null check and return value check are present, and the loop does not leak references under normal iteration."
+ },
+ {
+  "function": "octep_sriov_enable",
+  "decision": "yes",
+  "explanation": "The loop iterating over PCI devices using pci_get_device() does not verify that each matched VF belongs to the current PF (e.g., by checking vf_pdev->physfn == pdev). This can cause octep_vdpa_assign_"
+ },
+ {
+  "function": "pas_setup_mce_regs",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "pasemi_dma_init",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "nforce2_detect_chipset",
+  "decision": "yes",
+  "explanation": "The function acquires a PCI device reference via pci_get_subsys() but never releases it with pci_dev_put(), causing a reference count leak. This is a resource leak that can lead to memory exhaustion o"
+ },
+ {
+  "function": "nforce2_fsb_read",
+  "decision": "yes",
+  "explanation": "The code is vulnerable because it uses the uninitialized local variable `fsb` if `pci_read_config_dword` fails, leading to undefined behavior or potential information disclosure. It also dereferences "
+ },
+ {
+  "function": "bnad_debugfs_write_regrd",
+  "decision": "yes",
+  "explanation": "The code has a memory safety vulnerability. If kzalloc for bnad->regdata fails, the function returns -ENOMEM without setting bnad->regdata to NULL, leaving it as a dangling pointer to already-freed me"
+ },
+ {
+  "function": "bnad_debugfs_write_regwr",
+  "decision": "no",
+  "explanation": ""
+ },
+ {
+  "function": "idt_dbgfs_csr_write",
+  "decision": "no",
+  "explanation": ""
+ },
+ {
+  "function": "led_proc_write",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "ofdt_write",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "proc_write_simdisk",
+  "decision": "no",
+  "explanation": "function not found in index"
+ },
+ {
+  "function": "ad3552r_hs_write_data_source",
+  "decision": "yes",
+  "explanation": "The code writes buf[count] = '\\0' using the user-supplied count, but simple_write_to_buffer copies at most sizeof(buf)-1 bytes. If count exceeds 63, buf[count] is an out-of-bounds write, leading to a "
+ }
+]

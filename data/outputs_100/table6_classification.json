@@ -1,0 +1,975 @@
+[
+  {
+    "entity": "A call to ip_tunnel_info_opts (or the macro that retrieves tunnel options from struct ip_tunnel_info)",
+    "constraint": "The options_len field of the ip_tunnel_info structure must be set to the correct size (e.g., sizeof(*md)) before calling ip_tunnel_info_opts on that structure.",
+    "kind": "seed",
+    "hexsha": "35ddf66c65eff93fff91406756ba273600bf61a3",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Access to `aux_rd_interval` array in `configure_lttpr_mode_non_transparent` with index derived from `repeater_cnt`",
+    "constraint": "Before using the index, ensure it is greater than 0 and less than `MAX_REPEATER_CNT` to avoid out-of-bounds access.",
+    "kind": "seed",
+    "hexsha": "9ba2ea6337b4f159aecb177555a6a81da92d302e",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to dev_get_drvdata(dev) to obtain a struct spi_controller * pointer in functions cqspi_suspend or cqspi_resume",
+    "constraint": "The obtained pointer must not be used as the argument to spi_controller_suspend or spi_controller_resume; instead, the correct pointer is the host field of the driver's private data structure (cqspi->host).",
+    "kind": "seed",
+    "hexsha": "32ce3bb57b6b402de2aec1012511e7ac4e7449dc",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to nla_parse_nested_deprecated in dcbnl_bcn_setcfg for DCB_ATTR_BCN",
+    "constraint": "The policy argument must be dcbnl_bcn_nest, not dcbnl_pfc_up_nest.",
+    "kind": "seed",
+    "hexsha": "31d49ba033095f6e8158c60f69714a500922e0c3",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Access to mhi_cntrl->mhi_chan[chan] using a channel ID obtained from MHI_TRE_GET_CMD_CHID in mhi_process_cmd_completion",
+    "constraint": "The channel ID must be validated to be less than mhi_cntrl->max_chan and the corresponding channel must be marked as configured before accessing mhi_cntrl->mhi_chan[chan].",
+    "kind": "seed",
+    "hexsha": "546362a9ef2ef40b57c6605f14e88ced507f8dd0",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A while loop that reads block headers from a firmware buffer by casting a pointer to a structure (e.g., struct wmfw_region or struct wmfw_coeff_item)",
+    "constraint": "Before dereferencing the block header, the size of the header structure must be checked against the remaining buffer size. If the header size exceeds the remaining bytes (i.e., sizeof(header) > firmware->size - pos), the loop must return an error (e.g., -EOVERFLOW). The original code used a less-than comparison in the loop condition, which failed to correctly handle boundary cases and did not produce an error when the header overflowed.",
+    "kind": "seed",
+    "hexsha": "959fe01e85b7241e3ec305d657febbe82da16a02",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "In function wl1251_cmd_scan, a memcpy from ssid to cmd->params.ssid, with ssid_len as the length argument.",
+    "constraint": "ssid_len must be clamped to a maximum of IEEE80211_MAX_SSID_LEN before being used in the memcpy and before assigning to cmd->params.ssid_len.",
+    "kind": "seed",
+    "hexsha": "d10a87a3535cce2b890897914f5d0d83df669c63",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to netif_rx(skb)",
+    "constraint": "The skb->len field must be read before the call to netif_rx(skb) and the saved value used after the call, because the skb may be freed by netif_rx.",
+    "kind": "seed",
+    "hexsha": "3ff256751a2853e1ffaa36958ff933ccc98c6cb5",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to usb_anchor_urb",
+    "constraint": "The urb must not be anchored again before being resubmitted; the urb is already anchored from a previous submission, and calling usb_anchor_urb again corrupts the anchor list.",
+    "kind": "seed",
+    "hexsha": "5cff1529a2f9b3461a7f5a6e36a86682fc290534",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function pdc_iodc_print that writes to the static buffer iodc_dbuf",
+    "constraint": "The lock pdc_lock must be acquired before any modification of iodc_dbuf and must be released only after the real32_call that uses iodc_dbuf has completed.",
+    "kind": "seed",
+    "hexsha": "7236aae5f81f3efbd93d0601e74fc05994bc2580",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "drm_atomic_state_init",
+    "constraint": "must call drm_dev_get before assigning dev to state, and __drm_atomic_state_free must call drm_dev_put",
+    "kind": "seed",
+    "hexsha": "4e076c73e4f6e90816b30fcd4a0d7ab365087255",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to del_timer_sync on the btv->timeout timer",
+    "constraint": "The call must be placed before the bttv structure is freed (i.e., before kfree(btv))",
+    "kind": "seed",
+    "hexsha": "bd5b50b329e850d467e7bcc07b2b6bde3752fbda",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to disable_work_sync on sched->fw_events_work in panthor_sched_unplug",
+    "constraint": "The disable_work_sync must be called before the mutex_lock and before any operations that may release resources (e.g., pm_runtime_put) to avoid a use-after-free race condition.",
+    "kind": "seed",
+    "hexsha": "7051f6ba968fa69918d72cc26de4d6cf7ea05b90",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A goto statement that jumps to a label performing of_node_put(child_np) from a code location after the completion of a for_each_available_child_of_node loop.",
+    "constraint": "The goto should not be used because the child_np reference may have already been released by an earlier of_node_put within the loop's break condition, leading to a double free.",
+    "kind": "seed",
+    "hexsha": "e07dea3de508cd6950c937cec42de7603190e1ca",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "iso_sock_kill",
+    "constraint": "Must set iso_pi(sk)->conn->sk to NULL before freeing the socket if iso_pi(sk)->conn is not NULL.",
+    "kind": "seed",
+    "hexsha": "9950f095d6c875dbe0c9ebfcf972ec88fdf26fc8",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Setting of x->mode_data and xtfs->x in iptfs_clone_state",
+    "constraint": "These assignments must occur only after all dynamic memory allocations for the clone (e.g., kcalloc for w_saved) have succeeded, to avoid leaving dangling pointers on failure.",
+    "kind": "seed",
+    "hexsha": "d849a2f7309fc0616e79d13b008b0a47e0458b6e",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to `devm_led_classdev_register` where the returned LED class device pointer is not stored in a field of the containing structure (e.g., `hda_gen_spec->led_cdevs`)",
+    "constraint": "The LED class device must be explicitly unregistered via `led_classdev_unregister` in the cleanup function of the containing structure (e.g., `snd_hda_gen_spec_free`) before the structure is freed.",
+    "kind": "seed",
+    "hexsha": "549f8ffc7b2f7561bea7f90930b6c5104318e87b",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The decision to use md->zone_revalidate_map in dm_blk_report_zones",
+    "constraint": "Only the process that set md->revalidate_map_task (i.e., current == md->revalidate_map_task) may use md->zone_revalidate_map; otherwise, the live table must be obtained via dm_get_live_table() and released with dm_put_live_table(). Additionally, the selected dm_table pointer must be checked for NULL before being passed to dm_blk_do_report_zones.",
+    "kind": "seed",
+    "hexsha": "37f53a2c60d03743e0eacf7a0c01c279776fef4e",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "The loop in snd_ctl_elem_init_enum_names that calls strnlen(p, buf_len)",
+    "constraint": "buf_len must be validated to be non-zero before being used as the maximum length argument to strnlen; if buf_len is zero, the function should return -EINVAL after freeing the allocated names buffer.",
+    "kind": "seed",
+    "hexsha": "e0da8a8cac74f4b9f577979d131f0d2b88a84487",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "The loop in process_rx() that reads payload objects from the received message buffer, using pd_header_cnt_le(msg.header) to determine the number of iterations.",
+    "constraint": "The byte count (count) read from TCPC_RX_BYTE_CNT must be validated to be >= TCPC_RECEIVE_BUFFER_RX_BYTE_BUF_OFFSET + sizeof(msg.header) + pd_header_cnt_le(msg.header) * sizeof(msg.payload[0]) before using pd_header_cnt_le to iterate over payloads.",
+    "kind": "seed",
+    "hexsha": "aa2f716327be1818e1cb156da8a2844804aaec2f",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A variable `label_count` of type `u8` used as a counter in a while loop that iterates over MPLS labels in function `key_extract_l3l4`",
+    "constraint": "The counter must be of a type that can accommodate the maximum possible number of iterations without overflow, such as `size_t`, to avoid an infinite loop when the counter wraps.",
+    "kind": "seed",
+    "hexsha": "0bdc924bfb319fb10d1113cbf091fc26fb7b1f99",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A call to an IH get_wptr function (e.g., cik_ih_get_wptr, cz_ih_get_wptr, iceland_ih_get_wptr, ih_v6_0_get_wptr, ih_v6_1_get_wptr, navi10_ih_get_wptr, si_ih_get_wptr, tonga_ih_get_wptr, vega10_ih_get_wptr, vega20_ih_get_wptr) that sets the WPTR_OVERFLOW_CLEAR bit in the IH_RB_CNTL register while handling an IH ring buffer overflow",
+    "constraint": "After setting the WPTR_OVERFLOW_CLEAR bit to 1 and writing the register, the bit must be cleared (set to 0) in the same register write and written back immediately, so that subsequent overflows can be detected.",
+    "kind": "seed",
+    "hexsha": "7330256268664ea0a7dd5b07a3fed363093477dd",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The assignment of request->ssids and request->ie in nl80211_trigger_scan",
+    "constraint": "Offsets for ssids and ie must be computed from the cumulative allocation size (using size_add and array_size) before kzalloc, and pointers must be set using base address + offset, not by indexing into the channels array",
+    "kind": "seed",
+    "hexsha": "838c7b8f1f278404d9d684c34a8cb26dc41aaaa1",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A folio obtained from f2fs_grab_cache_folio in the move_data_block function",
+    "constraint": "The folio must be released using f2fs_folio_put(folio, true) instead of checking folio_test_uptodate and manually calling __folio_set_dropbehind, folio_unlock, folio_end_dropbehind, and folio_put.",
+    "kind": "seed",
+    "hexsha": "ccaba785821970f422c47770331c7e3271763f17",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "The ZSWAP_SWAPCACHE_NEW case in the switch statement of zswap_writeback_entry",
+    "constraint": "After the swap cache page is allocated, the zswap entry must be rechecked (via zswap_rb_search) to ensure it is still present in the tree before proceeding with decompression and writeback.",
+    "kind": "seed",
+    "hexsha": "04fc7816089c5a32c29a04ec94b998e219dfb946",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A call to function tracing_buffers_mmap",
+    "constraint": "The function must check if the trace array's flags include TRACE_ARRAY_FL_BOOT; if so, return -ENODEV before any mmap operations.",
+    "kind": "seed",
+    "hexsha": "129fe718819cc5e24ea2f489db9ccd4371f0c6f6",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to parse_dacl, build_sec_desc, or id_mode_to_cifs_acl that uses a DACL (struct smb_acl *) obtained from a security descriptor (struct smb_ntsd *) via dacloffset",
+    "constraint": "The DACL must be validated by calling validate_dacl with the DACL pointer and the end of the ACL buffer before any access to its fields (size, num_aces, or ACE entries).",
+    "kind": "seed",
+    "hexsha": "0a8cf165566ba55a39fd0f4de172119dd646d39a",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to drm_gem_object_init",
+    "constraint": "On failure of drm_gem_object_init, the error path must call drm_gem_object_release on the base object and then kfree the containing structure, rather than using a reference decrement like nouveau_bo_ref.",
+    "kind": "seed",
+    "hexsha": "a9bf3efc33f1fbf88787a277f7349459283c9b95",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function truncate_bdev_range where the 'end' argument is computed as 'start + len - 1' without overflow checking.",
+    "constraint": "The addition of 'start' and 'len' must be checked for overflow (e.g., using check_add_overflow) before the result is used in the 'end' argument of truncate_bdev_range or any other range operation, such as a comparison with bdev_nr_bytes.",
+    "kind": "seed",
+    "hexsha": "697ba0b6ec4ae04afb67d3911799b5e2043b4455",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A length check (`xdr_round_up(token_len) + sizeof(__be32) > len`) in the function `rxgk_verify_response` for the token length field of the RXGK_Response packet.",
+    "constraint": "The raw token length must be compared to the remaining packet length before any arithmetic (such as `xdr_round_up`) that could overflow.",
+    "kind": "seed",
+    "hexsha": "699e52180f4231c257821c037ed5c99d5eb0edb8",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A call to device_rbtree_insert or device_rbtree_remove",
+    "constraint": "The call must be guarded by a check that the device is a PCI device and supports ATS (pci_ats_supported returns true).",
+    "kind": "seed",
+    "hexsha": "89436f4f54125b1297aec1f466efd8acb4ec613d",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `cpumask_any` on the `cpu_mask` field of `struct rdt_domain_hdr` within `resctrl_arch_rmid_read`",
+    "constraint": "The `cpu_mask` must be checked for non-empty using `cpumask_empty` before calling `cpumask_any` to avoid out-of-bounds access when the mask is empty.",
+    "kind": "seed",
+    "hexsha": "fc16126cc11d9f507130bf84ab137ee0938c900e",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Invocation of clock_settime function pointer in struct posix_clock_operations",
+    "constraint": "The timespec64 argument supplied to clock_settime must be checked with timespec64_valid_strict prior to invocation.",
+    "kind": "seed",
+    "hexsha": "d8794ac20a299b647ba9958f6d657051fc51a540",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A BUG_ON() call that checks pmd_none or pmd_trans_huge on a page table entry after it has been read from the page table, without proper synchronization to prevent concurrent modifications.",
+    "constraint": "The BUG_ON() should be removed, and the code should handle the case where the page table state has been changed by another kernel thread (e.g., khugepaged) by allowing the subsequent operations (like pte_offset_map_lock) to handle it.",
+    "kind": "seed",
+    "hexsha": "4828d207dc5161dc7ddf9a4f6dcfd80c7dd7d20a",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "The prealloc_blob size check in __ceph_setxattr (comparison of required_blob_size with prealloc_blob->alloc_len)",
+    "constraint": "The required_blob_size must be recomputed after __build_xattrs() is called, because __build_xattrs() may have changed the xattr tree, and the previously computed required_blob_size may be stale.",
+    "kind": "seed",
+    "hexsha": "0c22d9511cbde746622f8e4c11aaa63fe76d45f9",
+    "entity_type": "Others"
+  },
+  {
+    "entity": "Left shift operation with shift amount (PAGE_SHIFT - inode->i_blkbits) in the computation of logical block number from buffer_head and folio",
+    "constraint": "The shift amount must be non-negative (i.e., inode->i_blkbits <= PAGE_SHIFT) or the calculation must be restructured to avoid the subtraction, e.g., by using a right shift of the byte offset sum",
+    "kind": "seed",
+    "hexsha": "1e39da974ce621ed874c6d3aaf65ad14848c9f0d",
+    "entity_type": "Others"
+  },
+  {
+    "entity": "A call to drm_vma_node_allow",
+    "constraint": "The call must be drm_vma_node_allow_once to ensure that the vma node is allowed only once per file, preventing a memory leak from duplicate allowances.",
+    "kind": "seed",
+    "hexsha": "0220e4fe178c3390eb0291cdb34912d66972db8a",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A multiplication of a u32 variable (i) and a u32 struct field (pool->chunk_size) used as the third argument to the function xp_init_xskb_addr",
+    "constraint": "The multiplication must be performed in u64 arithmetic to prevent overflow; specifically, at least one operand must be cast to u64 before the multiplication.",
+    "kind": "seed",
+    "hexsha": "559847f56769037e5b2e0474d3dbff985b98083d",
+    "entity_type": "Others"
+  },
+  {
+    "entity": "A local variable of type struct irdma_create_ah_resp declared in function irdma_create_user_ah",
+    "constraint": "The variable must be initialized to zero (e.g., by using = {}) before being copied to userspace via ib_copy_to_udata, to prevent leaking uninitialized kernel stack data (specifically the rsvd field).",
+    "kind": "seed",
+    "hexsha": "74586c6da9ea222a61c98394f2fc0a604748438c",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A for loop in the error handling label err_free_out of iio_gts_build_avail_scale_table that decrements i and calls kfree on per_time_scales[i] and per_time_gains[i]",
+    "constraint": "The loop condition must be 'i >= 0' instead of 'i' to ensure that the entry at index 0 is freed.",
+    "kind": "seed",
+    "hexsha": "369f05688911b05216cfcd6ca74473bec87948d7",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A call to function dma_resv_add_fence",
+    "constraint": "After calling dma_resv_add_fence, the caller must call dma_fence_put on the same fence object to release the local reference, as dma_resv_add_fence takes its own reference.",
+    "kind": "seed",
+    "hexsha": "baa6b6068a3f2bf2ed525a1cb37975905dadc658",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function scx_cgroup_move_task (previously scx_move_task)",
+    "constraint": "The call must be guarded by a condition that ensures it is only executed for cgroup migrations, not autogroup migrations. Specifically, the call should be conditional on a parameter (e.g., for_autogroup) being false, indicating that the migration is not for an autogroup.",
+    "kind": "seed",
+    "hexsha": "d6f3e7d564b2309e1f17e709a70eca78d7ca2bb8",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `of_graph_get_remote_node`",
+    "constraint": "The returned device node must be released via `of_node_put` before the function returns, after its last use.",
+    "kind": "seed",
+    "hexsha": "7d255ddbbf679aa47e041cbf68520fd985ed2279",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to acpi_evaluate_dsm",
+    "constraint": "The returned pointer must be freed via kfree before any return from the function, including early returns based on the pointer value or its fields.",
+    "kind": "seed",
+    "hexsha": "d38a648d2d6cc7bee11c6f533ff9426a00c2a74c",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "The variable 'size' used in the allocation size calculation in radeon_cs_parser_init",
+    "constraint": "The variable 'size' must be of a 64-bit type (u64) to prevent integer overflow when multiplied by sizeof(uint32_t) in the allocation calls.",
+    "kind": "seed",
+    "hexsha": "f828b681d0cd566f86351c0b913e6cb6ed8c7b9c",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to kmalloc for allocating a buffer of size EDID_LENGTH",
+    "constraint": "The allocated buffer must be zero-initialized (using kzalloc) to prevent information leak of uninitialized kernel heap data when the EDID read fails and the buffer is dumped.",
+    "kind": "seed",
+    "hexsha": "4d8457fe0eb9c80ff7795cf8a30962128b71d853",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to usb_create_hcd",
+    "constraint": "The allocated hcd must be freed via usb_put_hcd on all error paths after the call, including when platform_get_resource fails.",
+    "kind": "seed",
+    "hexsha": "3755278f078460b021cd0384562977bf2039a57a",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function devm_kzalloc",
+    "constraint": "The return value must be checked for NULL (not IS_ERR) and on failure return -ENOMEM.",
+    "kind": "seed",
+    "hexsha": "e5ca5d7b4d7c29246d957dc45d63610584ae3a54",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function amdgpu_dm_create_common_mode",
+    "constraint": "The return value must be checked for NULL before being used (e.g., calling drm_mode_probed_add or amdgpu_dm_connector->num_modes++)",
+    "kind": "seed",
+    "hexsha": "588a70177df3b1777484267584ef38ab2ca899a2",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to get_endpoint(intf->altsetting, 0) where intf is a usb_interface pointer",
+    "constraint": "The interface descriptor's bNumEndpoints must be checked to be at least 1 before calling get_endpoint.",
+    "kind": "seed",
+    "hexsha": "df1d8abf36ca3681c21a6809eaa9a1e01ef897a6",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to kzalloc to allocate a per-superblock private data structure (e.g., struct hfsplus_sb_info) in an init_fs_context or fill_super function.",
+    "constraint": "The structure must be freed via call_rcu in the filesystem's kill_sb callback, and must not be freed via kfree in any error path of the fill_super function, nor via call_rcu in the put_super function.",
+    "kind": "seed",
+    "hexsha": "126fb0ce99431126b44a6c360192668c818f641f",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to `codetag_lock_module_list` or `codetag_trylock_module_list` with argument `alloc_tag_cttype`",
+    "constraint": "The argument `alloc_tag_cttype` must be checked for `IS_ERR_OR_NULL` before the call.",
+    "kind": "seed",
+    "hexsha": "99af22cd34688cc0d535a1919e0bea4cbc6c1ea1",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The function mctp_i2c_header_create",
+    "constraint": "The daddr and saddr parameters must be checked for NULL before being dereferenced.",
+    "kind": "seed",
+    "hexsha": "01e215975fd80af81b5b79f009d49ddd35976c13",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to crypto_register_skciphers",
+    "constraint": "The call must be performed unconditionally, without being guarded by a conditional block that checks a configuration option (e.g., CONFIG_DM_CRYPT), because the subsequent error handling path unconditionally calls crypto_unregister_skciphers.",
+    "kind": "seed",
+    "hexsha": "2d841af23ae8f398c85dd1ff2dc24b5ec8ba4569",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to DC_LOG_BIOS that accesses a pointer obtained from the GET_IMAGE macro",
+    "constraint": "The pointer must be checked for NULL before the DC_LOG_BIOS call.",
+    "kind": "seed",
+    "hexsha": "0484e05d048b66d01d1f3c1d2306010bb57d8738",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function pointer stream->prepare_write in the retry path of netfs_unbuffered_write()",
+    "constraint": "The function pointer must be checked for NULL before being called; if NULL, an alternative path (e.g., using netfs_reset_iter and netfs_reissue_write) must be executed instead.",
+    "kind": "seed",
+    "hexsha": "e9075e420a1eb3b52c60f3b95893a55e77419ce8",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The assignment call_pkg = buf in function acpi_nfit_ctl when cmd == ND_CMD_CALL",
+    "constraint": "buf must be non-NULL and buf_len must be at least sizeof(struct nd_cmd_pkg) before the assignment.",
+    "kind": "seed",
+    "hexsha": "265e98f72bac6c41a4492d3e30a8e5fd22fe0779",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Reading sbi->raw_super->extension_count and sbi->raw_super->hot_ext_count in f2fs_sbi_show()",
+    "constraint": "Must be performed while holding the sb_lock read lock (f2fs_down_read before and f2fs_up_read after)",
+    "kind": "seed",
+    "hexsha": "5909bedbed38c558bee7cb6758ceedf9bc3a9194",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to i2c_smbus_read_block_data",
+    "constraint": "The return value must be checked to be greater than zero before using it as an index into the buffer.",
+    "kind": "seed",
+    "hexsha": "0e211f6aaa6a00fd0ee0c1eea5498f168c6725e6",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `dev_is_platform` with a device pointer",
+    "constraint": "The device pointer must be checked for NULL before being used in `dev_is_platform`.",
+    "kind": "seed",
+    "hexsha": "0f525289ff0ddeb380813bd81e0f9bdaaa1c9078",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The `BYT_RT5640_MAP` macro and the switch on its result in the `log_quirks` function",
+    "constraint": "When the map value does not match any of the supported cases (BYT_RT5640_DMIC1_MAP, BYT_RT5640_DMIC2_MAP, BYT_RT5640_IN1_MAP, BYT_RT5640_IN3_MAP, BYT_RT5640_NO_INTERNAL_MIC_MAP), the code must reset the quirk's map bits to a valid default (e.g., BYT_RT5640_DMIC1_MAP) instead of only logging an error.",
+    "kind": "seed",
+    "hexsha": "fba404e4b4af4f4f747bb0e41e9fff7d03c7bcc0",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A condition check using the WARN_ON macro in an if statement that returns -EINVAL for a buffer size exceedance",
+    "constraint": "The WARN_ON should be removed, leaving only the condition check, because the condition is a normal runtime error check and not a kernel bug.",
+    "kind": "seed",
+    "hexsha": "b7a0a63f3fed57d413bb857de164ea9c3984bc4e",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "Use of `chan->channel` as an index into `st->channels[]` in the ad7173 driver.",
+    "constraint": "The index must be `chan->address` instead of `chan->channel`.",
+    "kind": "seed",
+    "hexsha": "0eb8d7b25397330beab8ee62c681975b79f37223",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to sprintf with file_name and hash_algo_name[algo] where algo is from ima_algo_array[i].algo",
+    "constraint": "algo must be checked for HASH_ALGO__LAST before being used as an index into hash_algo_name",
+    "kind": "seed",
+    "hexsha": "d7bd8cf0b348d3edae7bee33e74a32b21668b181",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A bounds check in the loop of `check_wsl_eas` that computes an address using the extended attribute structure pointer `ea` and compares it to the end pointer `end`.",
+    "constraint": "The address computation must use `ea->ea_data` instead of `ea` to correctly account for the offset to the data field, ensuring that the sum of `ea->ea_data`, `nlen`, 1, and `vlen` does not exceed `end`.",
+    "kind": "seed",
+    "hexsha": "3d8b9d06bd3ac4c6846f5498800b0f5f8062e53b",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "data->block[0] access in the I2C_SMBUS_BLOCK_DATA case of rtl9300_i2c_smbus_xfer",
+    "constraint": "The value of data->block[0] must be checked to be between 1 and I2C_SMBUS_BLOCK_MAX before being used as a length.",
+    "kind": "seed",
+    "hexsha": "57f312b955938fc4663f430cb57a71f2414f601b",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to device_initialize",
+    "constraint": "After device_initialize, the device must be released via put_device on every error path that occurs before a successful call to device_add. Additionally, the dev->dev.class field must be assigned before any code that could fail and lead to such an error path, to ensure that the device's release function is available when put_device is called.",
+    "kind": "seed",
+    "hexsha": "e7d1d4d9ac0dfa40be4c2c8abd0731659869b297",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function svc_xprt_create_from_sa with a credential argument",
+    "constraint": "The credential argument must be current_cred() instead of get_current_cred() to avoid a reference leak",
+    "kind": "seed",
+    "hexsha": "92978c83bb4eef55d02a6c990c01c423131eefa7",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function clear_tracing_err_log",
+    "constraint": "The function must be invoked for each trace_array instance in its cleanup path (e.g., in __remove_instance) to free the error logs before the instance is deallocated.",
+    "kind": "seed",
+    "hexsha": "3357c6e429643231e60447b52ffbb7ac895aca22",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to device_register()",
+    "constraint": "The device's reference count must be decremented by calling put_device() when device_register() fails",
+    "kind": "seed",
+    "hexsha": "ac2b9f34f02052709aea7b34bb2a165e1853eb41",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Assignment to struct dma_fence * fields (vm->last_update, bo_va->last_pt_update) in amdgpu_vm_bo_add, amdgpu_vm_init, and amdgpu_vm_make_compute",
+    "constraint": "The field must be initialized with dma_fence_get_stub() instead of being set to NULL or left uninitialized, to ensure a valid fence reference is always present.",
+    "kind": "seed",
+    "hexsha": "187916e6ed9d0c3b3abc27429f7a5f8c936bd1f0",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "Function realloc_array",
+    "constraint": "The original pointer arr must be freed when krealloc_array returns NULL.",
+    "kind": "seed",
+    "hexsha": "42378a9ca55347102bbf86708776061d8fe3ece2",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The function nft_dynset_expr_setup",
+    "constraint": "When nft_expr_clone fails, the function must call nft_set_elem_expr_destroy on the elem_expr to free previously cloned expressions before returning an error.",
+    "kind": "seed",
+    "hexsha": "0548a13b5a145b16e4da0628b5936baf35f51b43",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A local array of type u8 with a fixed size used as receive buffer in a function that calls i2c_transfer and returns data from the buffer",
+    "constraint": "The array must be initialized (e.g., to zero) before the i2c_transfer call to prevent returning uninitialized data if the transfer fails.",
+    "kind": "seed",
+    "hexsha": "2dd59fe0e19e1ab955259978082b62e5751924c7",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to function of_parse_phandle",
+    "constraint": "The returned OF node reference must be released via of_node_put on every error path after the call.",
+    "kind": "seed",
+    "hexsha": "ec25e60f9f95464aa11411db31d0906b3fb7b9f2",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function attr_data_get_block returning lcn and clen.",
+    "constraint": "The returned clen must be checked for zero before any use of lcn; if clen is zero, the function must return an error (e.g., -EINVAL).",
+    "kind": "seed",
+    "hexsha": "e98266e823a1fa06fe6499df61aeaac2fd6f7a49",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function inet_csk_reqsk_queue_hash_add",
+    "constraint": "When the call returns false, the previously allocated dst must be released using dst_release",
+    "kind": "seed",
+    "hexsha": "4f4aa4aa28142d53f8b06585c478476cfe325cfc",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to pdsc_devcmd_locked with opcode PDS_CORE_CMD_FW_CONTROL",
+    "constraint": "The return value of the call must not be used to cause an early return from the function; the function must continue to execute the subsequent code (loop over fw_list and devlink_info_version_put calls) even if the command fails, and the fw_list structure must be zero-initialized to handle the failure case.",
+    "kind": "seed",
+    "hexsha": "2567daad69cd1107fc0ec29b1615f110d7cf7385",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "hci_dev_test_and_set_flag(hdev, HCI_MGMT) in mgmt_init_hdev()",
+    "constraint": "The HCI_MGMT flag must be set only after the initialization steps (clearing HCI_BONDABLE, initializing delayed works) are complete; the test should not set the flag.",
+    "kind": "seed",
+    "hexsha": "f74ca25d6d6629ffd4fd80a1a73037253b57d06b",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "在函数nfsd4_encode_fattr4中，对struct nfsd4_fattr_args的成员context的赋值（位于#ifdef CONFIG_NFSD_V4_SECURITY_LABEL块内）",
+    "constraint": "该赋值必须在所有可能跳转到out标签的代码路径之前执行，以确保在调用security_release_secctx(args.context, args.contextlen)之前，context已被初始化为NULL",
+    "kind": "seed",
+    "hexsha": "f58bab6fd4063913bd8321e99874b8239e9ba726",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "The unconditional return true statement in nf_osf_find",
+    "constraint": "The return value must be initialized to false and only set to true when a matching fingerprint is found in the loop.",
+    "kind": "seed",
+    "hexsha": "559c36c5a8d730c49ef805a72b213d3bba155cc8",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A local struct variable with a hole between an unsigned int sample and a s64 timestamp",
+    "constraint": "The struct must be zero-initialized before being used in iio_push_to_buffers_with_timestamp",
+    "kind": "seed",
+    "hexsha": "75f339d3ecd38cb1ce05357d647189d4a7f7ed08",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to function ieee80211_tdls_oper",
+    "constraint": "The function must check that the interface is in station mode (sdata->vif.type == NL80211_IFTYPE_STATION) and associated (sdata->vif.cfg.assoc is true) before proceeding with TDLS operations.",
+    "kind": "seed",
+    "hexsha": "16ecdab5446f15a61ec88eb0d23d25d009821db0",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The function qcom_pmic_typec_pdphy_pd_transmit_payload that computes hdr_len and txbuf_len from msg->header and uses them in an error message after a regmap_read call",
+    "constraint": "The variables hdr_len and txbuf_len must be computed from msg->header before the regmap_read of USB_PDPHY_RX_ACKNOWLEDGE_REG to ensure they are initialized even if the read fails.",
+    "kind": "seed",
+    "hexsha": "029778a4fd2c90c2e76a902b797c2348a722f1b8",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to the function that frees a usb_request object and its buffer (e.g., the function described in the documentation)",
+    "constraint": "The req->length field must be read before the call and the saved value used after the call, because the buffer may be freed by the function.",
+    "kind": "generated",
+    "candidate": "free_usb_request",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "a call to usb_hcd_link_urb_to_ep(hcd, urb)",
+    "constraint": "the urb must not already be linked to the endpoint (i.e., must not be present in the endpoint's urb list) before the call; an intervening call to usb_hcd_unlink_urb_from_ep must have occurred since the previous link.",
+    "kind": "generated",
+    "candidate": "usb_hcd_link_urb_to_ep",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to hrtimer_cancel(timer) where timer is a field of a struct that is later freed using a memory deallocation function (e.g., kfree, vfree, devm_kfree, etc.).",
+    "constraint": "The hrtimer_cancel call must be placed before the memory deallocation of the containing struct.",
+    "kind": "generated",
+    "candidate": "hrtimer_cancel",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to edac_mc_free (struct mem_ctl_info *mci)",
+    "constraint": "Any timer that is associated with the mci structure (e.g., a timer embedded in the struct mem_ctl_info or a per-mci timer) must be deleted synchronously (e.g., via del_timer_sync or timer_delete_sync) before the call to edac_mc_free.",
+    "kind": "generated",
+    "candidate": "edac_mc_free",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to tipc_crypto_rekeying_sched(tx, changed, ...) where changed is true",
+    "constraint": "The call must be placed before the memory of the tipc_crypto structure pointed to by tx is freed (i.e., before a kfree(tx) or similar deallocation).",
+    "kind": "generated",
+    "candidate": "tipc_crypto_rekeying_sched",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to disable_delayed_work_sync on a delayed_work structure that may be re-armed or access shared data.",
+    "constraint": "The disable_delayed_work_sync call must precede all operations that release, free, or unlock shared resources (e.g., kfree, mutex_unlock, refcount decrement, skb_queue_purge) that the work item might access, to prevent a use-after-free race condition.",
+    "kind": "generated",
+    "candidate": "disable_delayed_work_sync",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `disable_delayed_work` on a delayed_work object that is associated with shared resources (e.g., memory, locks) that will be released later in the same function or cleanup path.",
+    "constraint": "The `disable_delayed_work` call must precede any mutex_lock, resource release (e.g., kfree, list_del, hci_dev_lock), or other operations that could lead to a use-after-free if the work item were to execute concurrently.",
+    "kind": "generated",
+    "candidate": "disable_delayed_work",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Any call to `device_link_wait_removal()`",
+    "constraint": "The call to `device_link_wait_removal()` must precede all operations that release shared resources (e.g., freeing device nodes, destroying of_changeset entries, mutex_lock that protects these resources, or any other resource deallocation that could be affected by pending device link removal work items). This ensures that all pending device link removal jobs complete before the resources they reference are freed, preventing use-after-free races.",
+    "kind": "generated",
+    "candidate": "device_link_wait_removal",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to iscsi_suspend_rx(struct iscsi_conn *conn)",
+    "constraint": "iscsi_suspend_rx(conn) must be called before any operations that release resources associated with the connection (e.g., socket release, freeing connection data) and before any locking that might be used by the work item (recvwork), to prevent a use-after-free race condition.",
+    "kind": "generated",
+    "candidate": "iscsi_suspend_rx",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to drm_kms_helper_poll_fini(dev) in a driver's cleanup/unload or error path.",
+    "constraint": "The call to drm_kms_helper_poll_fini must precede any mutex_lock, pm_runtime_put, or other operations that release shared resources (e.g., freeing memory, disabling clocks, or putting references) that the output polling work might access.",
+    "kind": "generated",
+    "candidate": "drm_kms_helper_poll_fini",
+    "entity_type": "Control-flow"
+  },
+  {
+    "entity": "A call to destroy_workqueue on a workqueue that is used by work items accessing shared resources, with resource release operations occurring after the call.",
+    "constraint": "The destroy_workqueue call must precede all resource release operations (e.g., free_page, kfree, mutex_destroy, device_unregister) that pertain to shared memory or objects accessed by work items queued on that workqueue. This prevents use-after-free races where a work item could access freed resources after the workqueue is destroyed.",
+    "kind": "generated",
+    "candidate": "destroy_workqueue",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "The function that implements the lookup and obtain shared references to multiple reset controllers (e.g., reset_control_bulk_get_shared). It contains a loop over i from 0 to num_rstcs-1 where it assigns rstcs[i].rstc = reset_control_get_shared(dev, rstcs[i].id) and returns an error if the assignment fails, without reverting previously assigned entries.",
+    "constraint": "Assignments to rstcs[i].rstc must be deferred until all reset control lookups have succeeded. Either accumulate results in a temporary array and assign only after the loop completes, or clean up all previous assignments on failure.",
+    "kind": "generated",
+    "candidate": "reset_control_bulk_get_shared",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to drm_gem_object_init_with_mnt",
+    "constraint": "On failure, the error path must call drm_gem_private_object_fini (or drm_gem_object_release) on the object parameter and then free the containing structure, rather than relying on reference counting.",
+    "kind": "generated",
+    "candidate": "drm_gem_object_init_with_mnt",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to drm_gpuvm_resv_object_alloc",
+    "constraint": "On failure (return value NULL), the error path must free the container structure (e.g., kfree the containing struct) and must not call drm_gem_object_put on the returned pointer, as it is NULL.",
+    "kind": "generated",
+    "candidate": "drm_gpuvm_resv_object_alloc",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Call to ieee80211_hdrlen with a frame control field from an untrusted or insufficiently validated packet, and subsequent use of the returned header length in arithmetic or memory operations (e.g., addition to an offset, subtraction from skb->len, memcpy) without prior validation that the header length does not exceed the actual packet length.",
+    "constraint": "The result of ieee80211_hdrlen must be compared to the available buffer length (e.g., skb->len) before any arithmetic or memory access that assumes the header fits within the packet.",
+    "kind": "generated",
+    "candidate": "ieee80211_hdrlen",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `bpf_cpumask_any_distribute` on a BPF cpumask variable (e.g., `mask`).",
+    "constraint": "Before calling `bpf_cpumask_any_distribute(mask)`, the caller must ensure the mask is non-empty, typically by checking `!bpf_cpumask_empty(mask)` or equivalent.",
+    "kind": "generated",
+    "candidate": "bpf_cpumask_any_distribute",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `bpf_cpumask_any_and_distribute(src1, src2)`",
+    "constraint": "Before calling `bpf_cpumask_any_and_distribute`, the caller must ensure that the intersection of `src1` and `src2` is non-empty, e.g., by verifying `!cpumask_empty(&temp)` where `temp` is the AND result, or by using `cpumask_and` and checking emptiness before passing.",
+    "kind": "generated",
+    "candidate": "bpf_cpumask_any_and_distribute",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A local variable of type struct fw_cdev_allocate_iso_resource (named allocate_iso_resource) that is later copied to userspace (e.g., via copy_to_user or similar).",
+    "constraint": "The variable must be zero-initialized (e.g., by using = {} or memset(&var, 0, sizeof(var))) before the copy to userspace occurs.",
+    "kind": "generated",
+    "candidate": "fw_cdev_allocate_iso_resource",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to function dma_resv_add_fence with arguments (struct dma_resv *obj, struct dma_fence *fence, enum dma_resv_usage usage)",
+    "constraint": "After the call to dma_resv_add_fence, the caller must call dma_fence_put on the same fence pointer to release the caller's reference, as dma_resv_add_fence takes its own reference via dma_fence_get internally.",
+    "kind": "generated",
+    "candidate": "dma_resv_add_fence",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function dma_resv_replace_fences",
+    "constraint": "After calling dma_resv_replace_fences, the caller must call dma_fence_put on the same fence object to release the local reference, as dma_resv_replace_fences takes its own reference.",
+    "kind": "generated",
+    "candidate": "dma_resv_replace_fences",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function amdgpu_bo_fence",
+    "constraint": "After calling amdgpu_bo_fence, the caller must call dma_fence_put on the same fence object to release the local reference, as amdgpu_bo_fence does not take ownership of the reference.",
+    "kind": "generated",
+    "candidate": "amdgpu_bo_fence",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function drm_gpuvm_resv_add_fence",
+    "constraint": "After calling drm_gpuvm_resv_add_fence, the caller must call dma_fence_put on the same fence object to release the local reference, as drm_gpuvm_resv_add_fence takes its own reference via dma_resv_add_fence.",
+    "kind": "generated",
+    "candidate": "drm_gpuvm_resv_add_fence",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Call to `of_get_child_by_name`",
+    "constraint": "The returned device node pointer must be released via `of_node_put` (or equivalent automatic cleanup) before the function returns, after its last use.",
+    "kind": "generated",
+    "candidate": "of_get_child_by_name",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `of_parse_phandle_with_args_map` that returns 0 and sets `out_args.np` to a valid device node.",
+    "constraint": "The caller must call `of_node_put(out_args.np)` after its last use of the node and before the containing function returns, unless the node reference is intentionally passed to another entity that takes ownership.",
+    "kind": "generated",
+    "candidate": "of_parse_phandle_with_args_map",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Call to `of_mdio_find_bus`",
+    "constraint": "The returned `struct mii_bus *` must be released via `put_device(&bus->dev)` (or `mii_bus_put` if available) after its last use and before the function returns.",
+    "kind": "generated",
+    "candidate": "of_mdio_find_bus",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to input_allocate_device() and subsequent use of the returned pointer (struct input_dev *)",
+    "constraint": "The pointer must be freed via input_free_device() (or input_unregister_device() if input_register_device() was called) on all return paths from the function, including early error paths.",
+    "kind": "generated",
+    "candidate": "input_allocate_device",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "The variable that stores the return value of drm_color_lut_size() when that value is used in allocation size computation involving multiplication by element size (e.g., passed to malloc or used in a product with sizeof(struct drm_color_lut)).",
+    "constraint": "The variable must be of a sufficiently large type (e.g., size_t, u64) to prevent integer overflow during the multiplication by element size.",
+    "kind": "generated",
+    "candidate": "drm_color_lut_size",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to fpga_image_info_alloc",
+    "constraint": "The allocated fpga_image_info must be freed via fpga_image_info_free on all error paths after the call, including when subsequent function calls fail.",
+    "kind": "generated",
+    "candidate": "fpga_image_info_alloc",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "call to input_allocate_device()",
+    "constraint": "The return value must be checked for NULL and on failure return -ENOMEM.",
+    "kind": "generated",
+    "candidate": "input_allocate_device",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "call to devm_kstrdup(dev, ...) where the return value is not checked for NULL",
+    "constraint": "After calling devm_kstrdup, the return value must be checked for NULL. If NULL, the caller must return -ENOMEM.",
+    "kind": "generated",
+    "candidate": "devm_kstrdup",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function fpga_image_info_alloc whose return value is not checked for NULL, or is checked but not followed by a return of -ENOMEM on failure.",
+    "constraint": "The return value of fpga_image_info_alloc must be checked for NULL, and if NULL, the caller must return -ENOMEM (or otherwise propagate the error appropriately).",
+    "kind": "generated",
+    "candidate": "fpga_image_info_alloc",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function cdev_alloc",
+    "constraint": "The return value must be checked for NULL and on failure return -ENOMEM.",
+    "kind": "generated",
+    "candidate": "cdev_alloc",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "call to function devm_input_allocate_device",
+    "constraint": "Check return value for NULL and return -ENOMEM on failure",
+    "kind": "generated",
+    "candidate": "devm_input_allocate_device",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "call to function devm_kasprintf",
+    "constraint": "the return value must be checked for NULL and if NULL, return -ENOMEM",
+    "kind": "generated",
+    "candidate": "devm_kasprintf",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "call to cdev_alloc()",
+    "constraint": "The return value must be checked for NULL before being used (e.g., accessing ->ops or ->owner, or passing to cdev_add).",
+    "kind": "generated",
+    "candidate": "cdev_alloc",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Return value of fpga_image_info_alloc() is used without NULL check",
+    "constraint": "The return value must be checked for NULL before being used (e.g., if (!info) return -ENOMEM; or KUNIT_ASSERT_NOT_ERR_OR_NULL).",
+    "kind": "generated",
+    "candidate": "fpga_image_info_alloc",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to drm_mode_duplicate",
+    "constraint": "The return value must be checked for NULL before being used (e.g., direct dereference, passing to drm_mode_probed_add, or assigning to a pointer that is later used without a NULL check).",
+    "kind": "generated",
+    "candidate": "drm_mode_duplicate",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Accessing an endpoint descriptor from a usb_interface's current alternate setting (e.g., via get_endpoint() on intf->altsetting, or directly indexing into the endpoint array of intf->altsetting[0])",
+    "constraint": "The interface descriptor's bNumEndpoints field must be checked to be at least 1 before accessing any endpoint descriptor from that alternate setting",
+    "kind": "generated",
+    "candidate": "usb_interface",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "a call to the function snd_component_add(struct snd_card *card, const char *component)",
+    "constraint": "the call must be performed while holding the card->lock spinlock (or a mutex that protects card->components, such as card->reg_mutex) to prevent concurrent modification of card->components",
+    "kind": "generated",
+    "candidate": "snd_component_add",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `phy_has_tsinfo` with a `phy_device` pointer",
+    "constraint": "The `phy_device` pointer must be checked for NULL before being used in `phy_has_tsinfo`.",
+    "kind": "generated",
+    "candidate": "phy_has_tsinfo",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `is_media_entity_v4l2_video_device` with a pointer to `struct media_entity`",
+    "constraint": "The pointer to `struct media_entity` must be validated for NULL before the call.",
+    "kind": "generated",
+    "candidate": "is_media_entity_v4l2_video_device",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to `is_ssam_device` with a device pointer",
+    "constraint": "The device pointer must be checked for NULL before being used in `is_ssam_device`.",
+    "kind": "generated",
+    "candidate": "is_ssam_device",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "Call to drm_scdc_read with a size parameter that is not validated to be within the allowed range.",
+    "constraint": "The size parameter must be checked to be between 1 and the maximum block size supported by SCDC (e.g., 32 or a defined constant like SCDC_MAX_BLOCK_SIZE) before calling drm_scdc_read.",
+    "kind": "generated",
+    "candidate": "drm_scdc_read",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "call to i2c_smbus_write_block_data(client, command, length, values)",
+    "constraint": "Before calling, the caller must ensure that `length` is in the range 1 to I2C_SMBUS_BLOCK_MAX inclusive.",
+    "kind": "generated",
+    "candidate": "i2c_smbus_write_block_data",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function blk_trace_shutdown",
+    "constraint": "The function must be invoked for each request_queue instance in its cleanup path (e.g., in blk_debugfs_remove or similar) to free the block trace structures before the queue is deallocated.",
+    "kind": "generated",
+    "candidate": "blk_trace_shutdown",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to nand_read_oob_op where the buffer pointed to by buf is not initialized before the call",
+    "constraint": "The buffer must be initialized (e.g., set to zero) before calling nand_read_oob_op to prevent returning uninitialized data if the hardware transfer fails.",
+    "kind": "generated",
+    "candidate": "nand_read_oob_op",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function of_graph_get_remote_port_parent",
+    "constraint": "The returned device node reference must be released via of_node_put on every error path after the call.",
+    "kind": "generated",
+    "candidate": "of_graph_get_remote_port_parent",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to of_get_parent",
+    "constraint": "The returned device node reference must be released via of_node_put on every execution path after the call, including all error paths.",
+    "kind": "generated",
+    "candidate": "of_get_parent",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function of_mdio_find_bus",
+    "constraint": "The returned mii_bus pointer must be released via put_device on its embedded dev (e.g., put_device(&bus->dev)) on every error path after the call.",
+    "kind": "generated",
+    "candidate": "of_mdio_find_bus",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to function of_parse_phandle_with_args_map",
+    "constraint": "If the call returns 0 (success), the device node reference stored in the `np` field of the `struct of_phandle_args` out-argument must be released via of_node_put on all code paths that follow the call, including error paths. If the call returns a negative error code, no reference is returned and no release is needed.",
+    "kind": "generated",
+    "candidate": "of_parse_phandle_with_args_map",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A call to cxl_mem_get_fw_info(mds) where mds is a struct cxl_memdev_state *",
+    "constraint": "The return value of this call must not be used to cause an early return from the enclosing function; the enclosing function must continue to execute subsequent code even if the command fails, and the mds->fw structure must be zero-initialized to handle the failure case.",
+    "kind": "generated",
+    "candidate": "cxl_mem_get_fw_info",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A local variable of type struct fw_cdev_allocate_iso_resource that is later used in a buffer transfer to userspace (e.g., passed to copy_to_user or similar).",
+    "constraint": "The struct must be zero-initialized (e.g., using = {0}) before being used in any function that copies its contents to a userspace buffer.",
+    "kind": "generated",
+    "candidate": "fw_cdev_allocate_iso_resource",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A local struct variable that is passed to ib_unpack without being zero-initialized (i.e., not initialized with = {} or memset(0))",
+    "constraint": "The struct must be zero-initialized before being passed to ib_unpack to prevent information leakage from uninitialized padding bytes when the struct is later used in a buffer transfer.",
+    "kind": "generated",
+    "candidate": "ib_unpack",
+    "entity_type": "Data structure"
+  },
+  {
+    "entity": "A call to build_skb_around(struct sk_buff *skb, void *data, unsigned int frag_size) where the skb argument points to a struct sk_buff that has not been zero-initialized (e.g., not memset to 0) before the call.",
+    "constraint": "The struct sk_buff pointed to by skb must be zero-initialized (e.g., using memset(skb, 0, sizeof(*skb))) before being passed to build_skb_around.",
+    "kind": "generated",
+    "candidate": "build_skb_around",
+    "entity_type": "Function"
+  },
+  {
+    "entity": "A local variable of type `struct vbt_header` that is not zero-initialized (i.e., not using `= {0}` or `memset`) and is later passed to a function that copies the struct to a buffer (e.g., `memcpy`, `copy_to_user`, or a function that writes the struct to device memory or a DMA buffer).",
+    "constraint": "The struct must be zero-initialized before being used in such a buffer transfer to prevent information leakage from uninitialized padding bytes.",
+    "kind": "generated",
+    "candidate": "vbt_header",
+    "entity_type": "Data structure"
+  }
+]

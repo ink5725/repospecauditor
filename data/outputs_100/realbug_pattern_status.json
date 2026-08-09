@@ -1,0 +1,982 @@
+[
+ {
+  "function": "bpa10x_rx_complete",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "usb_anchor_urb(urb, &data->rx_anchor);"
+  ]
+ },
+ {
+  "function": "btmtk_intr_complete",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "btmtk_usb_wmt_recv",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "usb_anchor_urb(urb, data->ctrl_anchor);",
+   "usb_unanchor_urb(urb)"
+  ]
+ },
+ {
+  "function": "btusb_bulk_complete",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "btusb_intr_complete",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "usb_anchor_urb(urb, &data->intr_anchor);"
+  ]
+ },
+ {
+  "function": "btusb_isoc_complete",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "usb_anchor_urb(urb, &data->isoc_anchor);"
+  ]
+ },
+ {
+  "function": "iptfs_clone_state",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "x->mode_data = xtfs;",
+   "xtfs->x = x;"
+  ]
+ },
+ {
+  "function": "iso_sock_kill",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "btusb_diag_complete",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "usb_anchor_urb(urb, &data->diag_anchor);"
+  ]
+ },
+ {
+  "function": "process_rx",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "id_mode_to_cifs_acl",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "parse_sec_desc",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "dacl_ptr = (struct smb_acl *)((char *)pntsd + dacloffset);",
+   "parse_dacl(idmap, dacl_ptr, end_of_acl, owner_sid_ptr, group_sid_ptr, fattr);"
+  ]
+ },
+ {
+  "function": "rxgk_verify_response",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "if (xdr_round_up(token_len) + sizeof(__be32) > len)",
+   "xdr_round_up(token_len)",
+   "xdr_round_up(token_len)"
+  ]
+ },
+ {
+  "function": "blkdev_fallocate",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "end = start + len - 1",
+   "truncate_bdev_range(bdev, file_to_blk_mode(file), start, end)"
+  ]
+ },
+ {
+  "function": "smb2_get_info_sec",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "rc = build_sec_desc(idmap, pntsd, ppntsd, ppntsd_size, addition_info, &secdesclen, &fattr);"
+  ]
+ },
+ {
+  "function": "etnaviv_gem_new_handle",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "omap_gem_new",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 5,
+  "quotes": [
+   "omap_gem_new()",
+   "drm_gem_object_init()",
+   "kfree(omap_obj)"
+  ]
+ },
+ {
+  "function": "msm_gem_new",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "ret = drm_gem_object_init(dev, obj, size);",
+   "if (ret) goto fail;"
+  ]
+ },
+ {
+  "function": "tegra_bo_alloc_object",
+  "status": "STILL_PRESENT",
+  "matched": 4,
+  "total": 4,
+  "quotes": [
+   "err = drm_gem_object_init(drm, &bo->gem, size);",
+   "goto free;",
+   "free: kfree(bo);"
+  ]
+ },
+ {
+  "function": "irdma_create_user_ah",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 3,
+  "quotes": [
+   "struct irdma_create_ah_resp uresp;",
+   "uresp.ah_id = ...",
+   "ib_copy_to_udata(udata, &uresp, ...)"
+  ]
+ },
+ {
+  "function": "__ceph_setxattr",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "required_blob_size = __get_required_blob_size(ci, name_len, val_len);",
+   "__build_xattrs(inode)",
+   "if (!ci->i_xattrs.prealloc_blob || required_blob_size > ci->i_xattrs.prealloc_blob->alloc_len)"
+  ]
+ },
+ {
+  "function": "gem_create_obj",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 2,
+  "quotes": [
+   "kfree(xen_obj)",
+   "drm_gem_object_release(&xen_obj->base)"
+  ]
+ },
+ {
+  "function": "drm_gem_handle_create_tail",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "ret = drm_vma_node_allow(&obj->vma_node, file_priv);"
+  ]
+ },
+ {
+  "function": "allocinfo_stop",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "codetag_lock_module_list(alloc_tag_cttype, false);"
+  ]
+ },
+ {
+  "function": "amdgpu_cs_submit",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 4,
+  "quotes": [
+   "p->fence = dma_fence_get(&leader->base.s_fence->finished);",
+   "dma_resv_add_fence(gobj->resv, p->fence, DMA_RESV_USAGE_WRITE);",
+   "p->fence"
+  ]
+ },
+ {
+  "function": "amdgpu_bo_fence",
+  "status": "PATTERN_ABSENT",
+  "matched": 0,
+  "total": 2,
+  "quotes": [
+   "dma_resv_add_fence(resv, fence, ...);",
+   "dma_fence_put(fence)"
+  ]
+ },
+ {
+  "function": "f2fs_sbi_show",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "endpoint_set_syncinterval",
+  "status": "STILL_PRESENT",
+  "matched": 4,
+  "total": 6,
+  "quotes": [
+   "desc = get_endpoint(alts, ep->ep_idx);",
+   "alts->desc.bNumEndpoints",
+   "ep->ep_idx"
+  ]
+ },
+ {
+  "function": "fcp_find_fc_interface",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "epd = get_endpoint(intf->altsetting, 0);",
+   "desc->bNumEndpoints",
+   "bInterfaceClass != 255"
+  ]
+ },
+ {
+  "function": "snd_usb_parse_datainterval",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 2,
+  "quotes": [
+   "get_endpoint(alts, 0)->bInterval",
+   "alts->desc.bNumEndpoints >= 1"
+  ]
+ },
+ {
+  "function": "aie2_cmd_submit",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "scarlett2_find_fc_interface",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "if (desc->bInterfaceClass != 255) continue;",
+   "epd = get_endpoint(intf->altsetting, 0);",
+   "desc->bNumEndpoints"
+  ]
+ },
+ {
+  "function": "uaudio_populate_uac_desc",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 2,
+  "quotes": [
+   "switch (le16_to_cpu(get_endpoint(alts, 0)->wMaxPacketSize)) {",
+   "alts->desc.bNumEndpoints >= 1"
+  ]
+ },
+ {
+  "function": "cxl_acpi_qos_class",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "struct device *dev = cxl_root->port.uport_dev;",
+   "if (!dev_is_platform(dev))"
+  ]
+ },
+ {
+  "function": "cxl_port_setup_regs",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "if (dev_is_platform(port->uport_dev))",
+   "port->uport_dev"
+  ]
+ },
+ {
+  "function": "dpu_kms_mmap_mdp5",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "if (!dev_is_platform(dpu_kms->pdev->dev.parent))",
+   "dpu_kms->pdev->dev.parent"
+  ]
+ },
+ {
+  "function": "adm1266_gpio_get",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 5,
+  "quotes": [
+   "ret = i2c_smbus_read_block_data(data->client, pmbus_cmd, read_buf);",
+   "if (ret < 0) return ret;",
+   "pins_status = read_buf[0] + (read_buf[1] << 8);"
+  ]
+ },
+ {
+  "function": "acbel_fsg032_probe",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "buf[rc] = '\\0';",
+   "buf[rc] = '\\0';"
+  ]
+ },
+ {
+  "function": "adm1266_gpio_get_multiple",
+  "status": "PATTERN_ABSENT",
+  "matched": 0,
+  "total": 2,
+  "quotes": [
+   "ret == 0",
+   "ret == 1"
+  ]
+ },
+ {
+  "function": "bpa_rs600_probe",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "nfsd_nl_listener_set_doit",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "ret = svc_xprt_create_from_sa(serv, xcl_name, net, sa, 0, get_current_cred());",
+   "get_current_cred()",
+   "current_cred()"
+  ]
+ },
+ {
+  "function": "nft_dynset_expr_setup",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "pata_parport_init",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 5,
+  "quotes": [
+   "device_register(&pata_parport_bus)",
+   "goto out_unregister_bus;",
+   "bus_unregister(&pata_parport_bus_type)"
+  ]
+ },
+ {
+  "function": "isa_bus_init",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "node_init_node_access",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "check_wsl_eas",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 5,
+  "quotes": [
+   "if (nlen != SMB2_WSL_XATTR_NAME_LEN || (u8 *)ea + nlen + 1 + vlen > end)",
+   "(u8 *)ea",
+   "sizeof(*ea)"
+  ]
+ },
+ {
+  "function": "ntfs_fallocate",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "ntfs_compress_write",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "err = attr_data_get_block(ni, frame << NTFS_LZNT_CUNIT, 1, &lcn, &clen, NULL, false);",
+   "if (lcn == SPARSE_LCN) {"
+  ]
+ },
+ {
+  "function": "ntfs_get_block_vbo",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "if (!len) return 0;"
+  ]
+ },
+ {
+  "function": "ni_decompress_file",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "err = attr_data_get_block(ni, vcn, cend - vcn, &lcn, &clen, &new, false);",
+   "if (err) goto out;",
+   "clen == 0"
+  ]
+ },
+ {
+  "function": "cdx_msi_domain_init",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 5,
+  "quotes": [
+   "parent_node = of_parse_phandle(np, \"msi-map\", 1);",
+   "if (!parent || !msi_get_domain_info(parent)) { ... return NULL; }",
+   "of_node_put(parent_node)"
+  ]
+ },
+ {
+  "function": "__cci_ace_get_port",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "cci_portn = of_parse_phandle(dn, \"cci-control-port\", 0);",
+   "return -ENODEV;",
+   "of_node_put(cci_portn)"
+  ]
+ },
+ {
+  "function": "rzn1_dmamux_route_allocate",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 4,
+  "quotes": [
+   "if (test_and_set_bit(...)) { ret = -EBUSY; goto free_map; }",
+   "if (ret) goto clear_bitmap;",
+   "of_node_put(dma_spec->np)"
+  ]
+ },
+ {
+  "function": "attribute_container_add_device",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "device_register",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "ata_tdev_add",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "sco_conn_free",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "dce_v6_0_sw_fini",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "drm_edid_free(adev->mode_info.bios_hardcoded_edid);",
+   "drm_kms_helper_poll_fini(adev_to_drm(adev));"
+  ]
+ },
+ {
+  "function": "dce_v11_0_sw_fini",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "adm8211_tx",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "fsl_dcu_unload",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "drm_gem_object_init",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "ath10k_htt_rx_h_undecap_raw",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "ath10k_htt_rx_h_undecap_nwifi",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "ieee80211_hdrlen(hdr->frame_control)",
+   "hdr = (struct ieee80211_hdr *)first_hdr;",
+   "memcpy(skb_push(msdu, hdr_len), hdr, hdr_len);"
+  ]
+ },
+ {
+  "function": "ath10k_htt_rx_h_get_pn",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "ehdr = skb->data + ieee80211_hdrlen(hdr->frame_control);"
+  ]
+ },
+ {
+  "function": "ath10k_htt_rx_h_find_rfc1042",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "hdr_len = ieee80211_hdrlen(hdr->frame_control);",
+   "rfc1042 += round_up(hdr_len, bytes_aligned) + round_up(crypto_len, bytes_aligned);",
+   "skb->len"
+  ]
+ },
+ {
+  "function": "ath10k_htt_rx_h_undecap_eth",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "ieee80211_hdrlen(hdr->frame_control)",
+   "(void *)hdr + round_up(hdr_len, bytes_aligned)",
+   "skb_push(msdu, hdr_len)"
+  ]
+ },
+ {
+  "function": "ath10k_htt_rx_validate_amsdu",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "ath10k_htt_rx_proc_rx_ind_hl",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "offset = ieee80211_hdrlen(hdr->frame_control);",
+   "if (ieee80211_has_protected(hdr->frame_control))",
+   "offset = ieee80211_hdrlen(hdr->frame_control);"
+  ]
+ },
+ {
+  "function": "ath10k_htt_rx_proc_rx_frag_ind_hl",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 4,
+  "quotes": [
+   "hdr_space = ieee80211_hdrlen(hdr->frame_control);",
+   "skb->len",
+   "ath10k_htt_rx_frag_tkip_decap_withmic(skb, tot_hdr_len + rx_hl->fw_desc.len, hdr_space);"
+  ]
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_raw",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "hdr_len = ieee80211_hdrlen(hdr->frame_control);",
+   "memmove((void *)msdu->data + crypto_len, (void *)msdu->data, hdr_len);",
+   "skb_pull(msdu, crypto_len);"
+  ]
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_nwifi",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_eth",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "hdr_len = ieee80211_hdrlen(hdr->frame_control);"
+  ]
+ },
+ {
+  "function": "ath11k_dp_rx_h_verify_tkip_mic",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "acpi_os_terminate",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "mdio_mux_init",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "return 0;",
+   "put_device(&parent_bus->dev)"
+  ]
+ },
+ {
+  "function": "ksz_mdio_register",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "parent_bus = of_mdio_find_bus(parent_bus_node);",
+   "of_node_put(parent_bus_node)",
+   "put_device(&parent_bus->dev)"
+  ]
+ },
+ {
+  "function": "omap2_clk_provider_init",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "fme_pr",
+  "status": "STILL_PRESENT",
+  "matched": 5,
+  "total": 5,
+  "quotes": [
+   "info = fpga_image_info_alloc(&pdev->dev);",
+   "if (!fme) { ret = -EINVAL; goto unlock_exit; }",
+   "if (!region) { ret = -EINVAL; goto unlock_exit; }"
+  ]
+ },
+ {
+  "function": "of_fpga_region_parse_ov",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "info = fpga_image_info_alloc(dev);",
+   "info->firmware_name = devm_kstrdup(dev, firmware_name, GFP_KERNEL);",
+   "fpga_image_info_free(info)"
+  ]
+ },
+ {
+  "function": "armada_lcd_bind",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "port = of_get_child_by_name(parent, \"port\");",
+   "armada_drm_crtc_create(drm, dev, res, irq, variant, port);",
+   "of_node_put(port)"
+  ]
+ },
+ {
+  "function": "of_dp_aux_populate_bus",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "np = of_get_next_available_child(bus, NULL);"
+  ]
+ },
+ {
+  "function": "acpi_button_add",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "kcs_bmc_ipmi_add_device",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 2,
+  "quotes": [
+   "priv->miscdev.name = devm_kasprintf(...)",
+   "if (!priv->data_in || !priv->data_out || !priv->kbuffer || !priv->miscdev.name) return -EINVAL;"
+  ]
+ },
+ {
+  "function": "bcm2835_register_pll_divider",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "return NULL;"
+  ]
+ },
+ {
+  "function": "mrfld_gpio_get_pinctrl_dev_name",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "name = devm_kstrdup(dev, acpi_dev_name(adev), GFP_KERNEL);"
+  ]
+ },
+ {
+  "function": "cdv_intel_dp_get_modes",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "mode = drm_mode_duplicate(dev, intel_dp->panel_fixed_mode);",
+   "drm_mode_probed_add(connector, mode);"
+  ]
+ },
+ {
+  "function": "ethtool_phy_get_ts_info_by_phc",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "if (phy_has_tsinfo(dev->phydev))",
+   "dev->phydev"
+  ]
+ },
+ {
+  "function": "__ethtool_get_ts_info",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "struct phy_device *phydev = dev->phydev;",
+   "dev->phydev",
+   "if (phy_is_default_hwtstamp(phydev) && phy_has_tsinfo(phydev))"
+  ]
+ },
+ {
+  "function": "ethnl_tsinfo_dump_one_net_topo",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "if (phy_has_tsinfo(dev->phydev)) {",
+   "dev->phydev"
+  ]
+ },
+ {
+  "function": "mode_replace",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "*dst = src ? drm_mode_duplicate(dev, src) : NULL;"
+  ]
+ },
+ {
+  "function": "audioformat_implicit_fb_quirk",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "get_endpoint(alts, 1)->bEndpointAddress",
+   "alts->desc.bNumEndpoints",
+   "bNumEndpoints >= 2"
+  ]
+ },
+ {
+  "function": "v4l2_subdev_link_validate",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "if (is_media_entity_v4l2_video_device(link->source->entity))",
+   "link->source->entity",
+   "link->source->entity"
+  ]
+ },
+ {
+  "function": "test_multipart_messages",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "ret = i2c_smbus_write_block_data(client, SSIF_IPMI_MULTI_PART_REQUEST_MIDDLE, 0, msg + 64);"
+  ]
+ },
+ {
+  "function": "i2c_acpi_space_handler",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "status = i2c_smbus_write_block_data(client, command, gsb->len, gsb->data);",
+   "gsb->len"
+  ]
+ },
+ {
+  "function": "smb_block_write",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "retval = i2c_smbus_write_block_data(client, commandcode, len, buf);"
+  ]
+ },
+ {
+  "function": "mtk_drm_of_get_ddp_ep_cid",
+  "status": "STILL_PRESENT",
+  "matched": 4,
+  "total": 6,
+  "quotes": [
+   "ep_dev_node = of_graph_get_remote_port_parent(ep_out);",
+   "of_node_put(ep_dev_node)",
+   "if (!ep_dev_node) return -EINVAL;"
+  ]
+ },
+ {
+  "function": "fsmc_read_page_hwecc",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 1,
+  "quotes": [
+   "u8 *oob = (u8 *)&ecc_oob[0];"
+  ]
+ },
+ {
+  "function": "cxl_fw_prepare",
+  "status": "NO_EVIDENCE",
+  "matched": 0,
+  "total": 0,
+  "quotes": []
+ },
+ {
+  "function": "ib_nl_process_good_resolve_rsp",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "struct sa_path_rec recs[RDMA_PRIMARY_PATH_MAX_REC_NUM];",
+   "ib_unpack(path_rec_table, ARRAY_SIZE(path_rec_table), rec_data->path_rec, &recs[num_prs]);"
+  ]
+ },
+ {
+  "function": "ma35_nand_read_oob_hwecc",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 3,
+  "quotes": [
+   "nand_read_oob_op(chip, page, 0, chip->oob_poi, mtd->oobsize);",
+   "chip->oob_poi",
+   "if (PREFIX_RA_IS_EMPTY(reg)) memset(...)"
+  ]
+ },
+ {
+  "function": "ma35_nand_read_page_hwecc",
+  "status": "STILL_PRESENT",
+  "matched": 4,
+  "total": 4,
+  "quotes": [
+   "ma35_nand_target_enable(chip, chip->cur_cs);",
+   "nand_read_oob_op(chip, page, 0, chip->oob_poi, mtd->oobsize);",
+   "chip->oob_poi"
+  ]
+ },
+ {
+  "function": "ib_sa_mcmember_rec_callback",
+  "status": "STILL_PRESENT",
+  "matched": 1,
+  "total": 2,
+  "quotes": [
+   "struct ib_sa_mcmember_rec rec;",
+   " (line 5-6). The struct is later passed to "
+  ]
+ },
+ {
+  "function": "ib_sa_classport_info_rec_callback",
+  "status": "STILL_PRESENT",
+  "matched": 3,
+  "total": 3,
+  "quotes": [
+   "struct opa_class_port_info rec;",
+   "memcpy(&info->data.opa, &rec, sizeof(info->data.opa));",
+   "struct ib_class_port_info rec;"
+  ]
+ },
+ {
+  "function": "ib_sa_guidinfo_rec_callback",
+  "status": "STILL_PRESENT",
+  "matched": 2,
+  "total": 2,
+  "quotes": [
+   "struct ib_sa_guidinfo_rec rec;",
+   "ib_unpack(guidinfo_rec_table, ARRAY_SIZE(guidinfo_rec_table), mad->data, &rec);"
+  ]
+ }
+]

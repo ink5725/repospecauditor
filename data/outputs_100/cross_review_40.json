@@ -1,0 +1,242 @@
+[
+ {
+  "function": "process_rx",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": ""
+ },
+ {
+  "function": "id_mode_to_cifs_acl",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": ""
+ },
+ {
+  "function": "parse_sec_desc",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": ""
+ },
+ {
+  "function": "rxgk_verify_response",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": ""
+ },
+ {
+  "function": "blkdev_fallocate",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": ""
+ },
+ {
+  "function": "omap_gem_new",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": ""
+ },
+ {
+  "function": "msm_gem_new",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": ""
+ },
+ {
+  "function": "irdma_create_user_ah",
+  "cross": "confirm",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "__ceph_setxattr",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "drm_gem_handle_create_tail",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "ath10k_htt_rx_h_undecap_raw",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "aie2_cmd_submit",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_eth",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "iptfs_clone_state",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "smb2_get_info_sec",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "audioformat_implicit_fb_quirk",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "gem_create_obj",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "ath10k_htt_rx_validate_amsdu",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "iso_sock_kill",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The code declares `struct irdma_create_ah_resp uresp;` without initialization, then sets only `uresp.ah_id = ah->sc_ah.a"
+ },
+ {
+  "function": "ethtool_phy_get_ts_info_by_phc",
+  "cross": "confirm",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "adm1266_gpio_get_multiple",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "btusb_intr_complete",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "tegra_bo_alloc_object",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "fme_pr",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "mdio_mux_init",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "btusb_diag_complete",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "pata_parport_init",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "ib_nl_process_good_resolve_rsp",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "attribute_container_add_device",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "i2c_acpi_space_handler",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "btusb_bulk_complete",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "acpi_os_terminate",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "device_register",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "In the fallback path, the line `if (phy_has_tsinfo(dev->phydev))` passes `dev->phydev` to `phy_has_tsinfo` without check"
+ },
+ {
+  "function": "mtk_drm_of_get_ddp_ep_cid",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The claimed leak is not a real bug in this function. After `ep_dev_node = of_graph_get_remote_port_parent(ep_out);`, the"
+ },
+ {
+  "function": "amdgpu_cs_submit",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The claimed leak is not a real bug in this function. After `ep_dev_node = of_graph_get_remote_port_parent(ep_out);`, the"
+ },
+ {
+  "function": "fsl_dcu_unload",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The claimed leak is not a real bug in this function. After `ep_dev_node = of_graph_get_remote_port_parent(ep_out);`, the"
+ },
+ {
+  "function": "mode_replace",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The claimed leak is not a real bug in this function. After `ep_dev_node = of_graph_get_remote_port_parent(ep_out);`, the"
+ },
+ {
+  "function": "dce_v6_0_sw_fini",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The claimed leak is not a real bug in this function. After `ep_dev_node = of_graph_get_remote_port_parent(ep_out);`, the"
+ },
+ {
+  "function": "kcs_bmc_ipmi_add_device",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The claimed leak is not a real bug in this function. After `ep_dev_node = of_graph_get_remote_port_parent(ep_out);`, the"
+ },
+ {
+  "function": "of_dp_aux_populate_bus",
+  "cross": "reject",
+  "original": "REAL_BUG",
+  "reason": "The claimed leak is not a real bug in this function. After `ep_dev_node = of_graph_get_remote_port_parent(ep_out);`, the"
+ }
+]

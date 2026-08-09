@@ -1,0 +1,6 @@
+numpy>=1.26
+requests>=2.31
+tree-sitter>=0.21
+tree-sitter-c>=0.21
+beautifulsoup4>=4.12
+pandas>=2.0

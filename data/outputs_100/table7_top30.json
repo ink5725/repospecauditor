@@ -1,0 +1,122 @@
+[
+ {
+  "function": "process_rx",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "id_mode_to_cifs_acl",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "parse_sec_desc",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "rxgk_verify_response",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "blkdev_fallocate",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "omap_gem_new",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "msm_gem_new",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "irdma_create_user_ah",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "__ceph_setxattr",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "drm_gem_handle_create_tail",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "f2fs_sbi_show",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "nfsd_nl_listener_set_doit",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "check_wsl_eas",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "ntfs_fallocate",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "ntfs_compress_write",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "ntfs_get_block_vbo",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "cdx_msi_domain_init",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "rzn1_dmamux_route_allocate",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "ata_tdev_add",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "sco_conn_free",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "drm_gem_object_init",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_nwifi",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "ksz_mdio_register",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "v4l2_subdev_link_validate",
+  "status": "FIXED_EXACT"
+ },
+ {
+  "function": "btmtk_usb_wmt_recv",
+  "status": "LIKELY_FIXED"
+ },
+ {
+  "function": "iso_sock_kill",
+  "status": "LIKELY_FIXED"
+ },
+ {
+  "function": "smb2_get_info_sec",
+  "status": "LIKELY_FIXED"
+ },
+ {
+  "function": "etnaviv_gem_new_handle",
+  "status": "LIKELY_FIXED"
+ },
+ {
+  "function": "amdgpu_cs_submit",
+  "status": "LIKELY_FIXED"
+ },
+ {
+  "function": "endpoint_set_syncinterval",
+  "status": "LIKELY_FIXED"
+ }
+]

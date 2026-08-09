@@ -1,0 +1,889 @@
+[
+ {
+  "function": "bpa10x_rx_complete",
+  "file": "drivers/bluetooth/bpa10x.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "btmtk_intr_complete",
+  "file": "drivers/bluetooth/btmtk.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "btmtk_usb_wmt_recv",
+  "file": "drivers/bluetooth/btmtk.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "Bluetooth: btmtk: Fix short read errors in btmtk_usb_reg_read()"
+  ]
+ },
+ {
+  "function": "btusb_bulk_complete",
+  "file": "drivers/bluetooth/btusb.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "btusb_intr_complete",
+  "file": "drivers/bluetooth/btusb.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "btusb_isoc_complete",
+  "file": "drivers/bluetooth/btusb.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "iptfs_clone_state",
+  "file": "net/xfrm/xfrm_iptfs.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "iso_sock_kill",
+  "file": "net/bluetooth/iso.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "Bluetooth: ISO: avoid deadlocks in iso_sock_timeout"
+  ]
+ },
+ {
+  "function": "btusb_diag_complete",
+  "file": "drivers/bluetooth/btusb.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "process_rx",
+  "file": "drivers/usb/typec/tcpm/tcpci_maxim_core.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "usb: typec: tcpm/tcpci_maxim: Fix bounds check in process_rx()"
+  ],
+  "partial": [
+   "usb: typec: tcpm/tcpci_maxim: Fix bounds check in process_rx()"
+  ]
+ },
+ {
+  "function": "id_mode_to_cifs_acl",
+  "file": "fs/smb/client/cifsacl.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "smb: client: refactor ACL setting control flow in id_mode_to_cifs_acl()"
+  ],
+  "partial": [
+   "smb: client: refactor ACL setting control flow in id_mode_to_cifs_acl()"
+  ]
+ },
+ {
+  "function": "parse_sec_desc",
+  "file": "fs/smb/server/smbacl.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "ksmbd: fix out-of-bounds in parse_sec_desc()"
+  ],
+  "partial": [
+   "ksmbd: fix out-of-bounds in parse_sec_desc()"
+  ]
+ },
+ {
+  "function": "rxgk_verify_response",
+  "file": "net/rxrpc/rxgk.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "rxrpc: Fix leak of rxgk context in rxgk_verify_response()"
+  ],
+  "partial": [
+   "rxrpc: Fix leak of rxgk context in rxgk_verify_response()"
+  ]
+ },
+ {
+  "function": "blkdev_fallocate",
+  "file": "block/fops.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "block: factor out common part in blkdev_fallocate()"
+  ],
+  "partial": [
+   "block: factor out common part in blkdev_fallocate()"
+  ]
+ },
+ {
+  "function": "smb2_get_info_sec",
+  "file": "fs/smb/server/smb2pdu.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "ksmbd: fix out-of-bounds write in smb2_get_ea() EA alignment"
+  ]
+ },
+ {
+  "function": "etnaviv_gem_new_handle",
+  "file": "drivers/gpu/drm/etnaviv/etnaviv_gem.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/etnaviv: Clean up etnaviv_gem_get_pages"
+  ]
+ },
+ {
+  "function": "omap_gem_new",
+  "file": "drivers/gpu/drm/omapdrm/omap_gem.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "drm/omap: Fix locking in omap_gem_new_dmabuf()"
+  ],
+  "partial": [
+   "drm/omap: Fix locking in omap_gem_new_dmabuf()"
+  ]
+ },
+ {
+  "function": "msm_gem_new",
+  "file": "drivers/gpu/drm/msm/msm_gem.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "drm/msm: Fix fall-through warning in msm_gem_new_impl()"
+  ],
+  "partial": [
+   "drm/msm: Rename msm_gem_vma_purge() -> _unmap()"
+  ]
+ },
+ {
+  "function": "tegra_bo_alloc_object",
+  "file": "drivers/gpu/drm/tegra/gem.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/tegra: gem: Do not return NULL in tegra_bo_mmap()"
+  ]
+ },
+ {
+  "function": "irdma_create_user_ah",
+  "file": "drivers/infiniband/hw/irdma/verbs.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "RDMA/irdma: Fix kernel stack leak in irdma_create_user_ah()"
+  ],
+  "partial": [
+   "RDMA/irdma: Fix kernel stack leak in irdma_create_user_ah()"
+  ]
+ },
+ {
+  "function": "__ceph_setxattr",
+  "file": "fs/ceph/xattr.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "ceph: fix a buffer leak in __ceph_setxattr()"
+  ],
+  "partial": [
+   "ceph: fix BUG_ON in __ceph_build_xattrs_blob() due to stale blob size"
+  ]
+ },
+ {
+  "function": "gem_create_obj",
+  "file": "drivers/gpu/drm/xen/xen_drm_front_gem.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "drm_gem_handle_create_tail",
+  "file": "drivers/gpu/drm/drm_gem.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "drm/gem: Fix race in drm_gem_handle_create_tail()"
+  ],
+  "partial": [
+   "drm/gem: Improve drm_gem_objects_lookup() kerneldoc"
+  ]
+ },
+ {
+  "function": "allocinfo_stop",
+  "file": "lib/alloc_tag.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "amdgpu_cs_submit",
+  "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/amdgpu: move debug_vm handling to amdgpu_cs_parser_fini"
+  ]
+ },
+ {
+  "function": "amdgpu_bo_fence",
+  "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_object.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/amdgpu: fix bo->pin leaking in amdgpu_bo_create_reserved"
+  ]
+ },
+ {
+  "function": "f2fs_sbi_show",
+  "file": "fs/f2fs/sysfs.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "f2fs: protect extension_list reading with sb_lock in f2fs_sbi_show()"
+  ],
+  "partial": [
+   "f2fs: protect extension_list reading with sb_lock in f2fs_sbi_show()"
+  ]
+ },
+ {
+  "function": "endpoint_set_syncinterval",
+  "file": "sound/usb/endpoint.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "ALSA: usb-audio: Check shutdown at endpoint_set_interface()"
+  ]
+ },
+ {
+  "function": "fcp_find_fc_interface",
+  "file": "sound/usb/fcp.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "snd_usb_parse_datainterval",
+  "file": "sound/usb/helper.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "aie2_cmd_submit",
+  "file": "drivers/accel/amdxdna/aie2_ctx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "scarlett2_find_fc_interface",
+  "file": "sound/usb/mixer_scarlett2.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "uaudio_populate_uac_desc",
+  "file": "sound/usb/qcom/qc_audio_offload.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "cxl_acpi_qos_class",
+  "file": "drivers/cxl/acpi.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "cxl/acpi: Remove cxl_acpi_set_cache_size()"
+  ]
+ },
+ {
+  "function": "cxl_port_setup_regs",
+  "file": "drivers/cxl/core/port.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "cxl/port: Reduce number of @dport variables in cxl_port_add_dport()"
+  ]
+ },
+ {
+  "function": "dpu_kms_mmap_mdp5",
+  "file": "drivers/gpu/drm/msm/disp/dpu1/dpu_kms.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/msm/dpu: cleanup dpu_kms_hw_init error path"
+  ]
+ },
+ {
+  "function": "adm1266_gpio_get",
+  "file": "drivers/hwmon/pmbus/adm1266.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "acbel_fsg032_probe",
+  "file": "drivers/hwmon/pmbus/acbel-fsg032.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "adm1266_gpio_get_multiple",
+  "file": "drivers/hwmon/pmbus/adm1266.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "bpa_rs600_probe",
+  "file": "drivers/hwmon/pmbus/bpa-rs600.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "nfsd_nl_listener_set_doit",
+  "file": "fs/nfsd/nfsctl.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "nfsd: Fix cred ref leak in nfsd_nl_listener_set_doit()."
+  ],
+  "partial": [
+   "nfsd: Fix cred ref leak in nfsd_nl_listener_set_doit()."
+  ]
+ },
+ {
+  "function": "nft_dynset_expr_setup",
+  "file": "net/netfilter/nft_dynset.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "nf_tables: nft_dynset: fix possible stateful expression memleak in error path"
+  ]
+ },
+ {
+  "function": "pata_parport_init",
+  "file": "drivers/ata/pata_parport/pata_parport.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "ata: pata_parport: switch to dynamic root device"
+  ]
+ },
+ {
+  "function": "isa_bus_init",
+  "file": "drivers/base/isa.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "node_init_node_access",
+  "file": "drivers/base/node.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "check_wsl_eas",
+  "file": "fs/smb/client/smb2inode.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "smb: client: fix off-by-8 bounds check in check_wsl_eas()"
+  ],
+  "partial": [
+   "smb: client: fix off-by-8 bounds check in check_wsl_eas()"
+  ]
+ },
+ {
+  "function": "ntfs_fallocate",
+  "file": "fs/ntfs3/file.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "fs/ntfs3: Fixing wrong logic in attr_set_size and ntfs_fallocate"
+  ],
+  "partial": [
+   "fs/ntfs3: Fixing wrong logic in attr_set_size and ntfs_fallocate"
+  ]
+ },
+ {
+  "function": "ntfs_compress_write",
+  "file": "fs/ntfs3/file.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "ntfs3: use folios more in ntfs_compress_write()"
+  ],
+  "partial": [
+   "ntfs3: use folios more in ntfs_compress_write()"
+  ]
+ },
+ {
+  "function": "ntfs_get_block_vbo",
+  "file": "fs/ntfs3/inode.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "ntfs3: convert ntfs_get_block_vbo() to use a folio"
+  ],
+  "partial": [
+   "ntfs3: convert ntfs_get_block_vbo() to use a folio"
+  ]
+ },
+ {
+  "function": "ni_decompress_file",
+  "file": "fs/ntfs3/frecord.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "cdx_msi_domain_init",
+  "file": "drivers/cdx/cdx_msi.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "cdx: Fix device node reference leak in cdx_msi_domain_init"
+  ],
+  "partial": [
+   "cdx: Fix device node reference leak in cdx_msi_domain_init"
+  ]
+ },
+ {
+  "function": "__cci_ace_get_port",
+  "file": "drivers/bus/arm-cci.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "rzn1_dmamux_route_allocate",
+  "file": "drivers/dma/dw/rzn1-dmamux.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "dmaengine: dw: dmamux: Fix device reference leak in rzn1_dmamux_route_allocate"
+  ],
+  "partial": [
+   "dmaengine: dw: dmamux: Fix device reference leak in rzn1_dmamux_route_allocate"
+  ]
+ },
+ {
+  "function": "attribute_container_add_device",
+  "file": "drivers/base/attribute_container.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "driver core: attribute_container: change return type to void"
+  ]
+ },
+ {
+  "function": "device_register",
+  "file": "drivers/base/core.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ata_tdev_add",
+  "file": "drivers/ata/libata-transport.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "ata: libata-transport: fix error handling in ata_tdev_add()"
+  ],
+  "partial": [
+   "ata: libata-transport: fix error handling in ata_tdev_add()"
+  ]
+ },
+ {
+  "function": "sco_conn_free",
+  "file": "net/bluetooth/sco.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "Bluetooth: SCO: Fix UAF on sco_conn_free"
+  ],
+  "partial": [
+   "Bluetooth: SCO: give the socket its own sco_conn reference"
+  ]
+ },
+ {
+  "function": "dce_v6_0_sw_fini",
+  "file": "drivers/gpu/drm/amd/amdgpu/dce_v6_0.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/amdgpu: Fix annotation for dce_v6_0_line_buffer_adjust function"
+  ]
+ },
+ {
+  "function": "dce_v11_0_sw_fini",
+  "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "adm8211_tx",
+  "file": "drivers/net/wireless/admtek/adm8211.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "fsl_dcu_unload",
+  "file": "drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "drm_gem_object_init",
+  "file": "drivers/gpu/drm/drm_gem.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "drm/gem: Create a drm_gem_object_init_with_mnt() function"
+  ],
+  "partial": [
+   "drm/gem: Improve drm_gem_objects_lookup() kerneldoc"
+  ]
+ },
+ {
+  "function": "ath10k_htt_rx_h_undecap_raw",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath10k_htt_rx_h_undecap_nwifi",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath10k_htt_rx_h_get_pn",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath10k_htt_rx_h_find_rfc1042",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath10k_htt_rx_h_undecap_eth",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath10k_htt_rx_validate_amsdu",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath10k_htt_rx_proc_rx_ind_hl",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath10k_htt_rx_proc_rx_frag_ind_hl",
+  "file": "drivers/net/wireless/ath/ath10k/htt_rx.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_raw",
+  "file": "drivers/net/wireless/ath/ath11k/dp_rx.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi"
+  ]
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_nwifi",
+  "file": "drivers/net/wireless/ath/ath11k/dp_rx.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi"
+  ],
+  "partial": [
+   "wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi"
+  ]
+ },
+ {
+  "function": "ath11k_dp_rx_h_undecap_eth",
+  "file": "drivers/net/wireless/ath/ath11k/dp_rx.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi"
+  ]
+ },
+ {
+  "function": "ath11k_dp_rx_h_verify_tkip_mic",
+  "file": "drivers/net/wireless/ath/ath11k/dp_rx.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "wifi: ath11k: fix invalid data access in ath11k_dp_rx_h_undecap_nwifi"
+  ]
+ },
+ {
+  "function": "acpi_os_terminate",
+  "file": "drivers/acpi/osl.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "ACPI: OSL: fix __iomem type on return from acpi_os_map_generic_address()"
+  ]
+ },
+ {
+  "function": "mdio_mux_init",
+  "file": "drivers/net/mdio/mdio-mux.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ksz_mdio_register",
+  "file": "drivers/net/dsa/microchip/ksz_common.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "net: dsa: microchip: cleanup error handling in ksz_mdio_register"
+  ],
+  "partial": [
+   "net: dsa: microchip: cleanup error handling in ksz_mdio_register"
+  ]
+ },
+ {
+  "function": "omap2_clk_provider_init",
+  "file": "drivers/clk/ti/clk.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "fme_pr",
+  "file": "drivers/fpga/dfl-fme-pr.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "of_fpga_region_parse_ov",
+  "file": "drivers/fpga/of-fpga-region.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "armada_lcd_bind",
+  "file": "drivers/gpu/drm/armada/armada_crtc.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "of_dp_aux_populate_bus",
+  "file": "drivers/gpu/drm/display/drm_dp_aux_bus.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "acpi_button_add",
+  "file": "drivers/acpi/button.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "ACPI: button: Merge two switch () statements in acpi_button_probe()"
+  ]
+ },
+ {
+  "function": "kcs_bmc_ipmi_add_device",
+  "file": "drivers/char/ipmi/kcs_bmc_cdev_ipmi.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "ipmi: kcs_bmc: Decouple the IPMI chardev from the core"
+  ]
+ },
+ {
+  "function": "bcm2835_register_pll_divider",
+  "file": "drivers/clk/bcm/clk-bcm2835.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "mrfld_gpio_get_pinctrl_dev_name",
+  "file": "drivers/gpio/gpio-merrifield.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "cdv_intel_dp_get_modes",
+  "file": "drivers/gpu/drm/gma500/cdv_intel_dp.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/gma500/cdv_intel_dp: Demote one unworthy header fix another"
+  ]
+ },
+ {
+  "function": "ethtool_phy_get_ts_info_by_phc",
+  "file": "net/ethtool/common.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "net: transfer rtnl_lock() requirement from ethtool_set_ethtool_phy_ops() to caller"
+  ]
+ },
+ {
+  "function": "__ethtool_get_ts_info",
+  "file": "net/ethtool/common.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ethnl_tsinfo_dump_one_net_topo",
+  "file": "net/ethtool/tsinfo.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "net: ethtool: optionally skip rtnl_lock in ethnl_tsinfo_dumpit()"
+  ]
+ },
+ {
+  "function": "mode_replace",
+  "file": "drivers/gpu/drm/drm_client_modeset.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "audioformat_implicit_fb_quirk",
+  "file": "sound/usb/implicit.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "v4l2_subdev_link_validate",
+  "file": "drivers/media/v4l2-core/v4l2-subdev.c",
+  "status": "FIXED_EXACT",
+  "exact": [
+   "media: v4l2-subdev: Support hybrid links in v4l2_subdev_link_validate()"
+  ],
+  "partial": [
+   "media: subdev: Split v4l2_subdev_get_frame_desc_passthrough() into locked and unlocked"
+  ]
+ },
+ {
+  "function": "test_multipart_messages",
+  "file": "drivers/char/ipmi/ipmi_ssif.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "i2c_acpi_space_handler",
+  "file": "drivers/i2c/i2c-core-acpi.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "i2c: acpi: Return -ENOENT when no resources found in i2c_acpi_client_count()"
+  ]
+ },
+ {
+  "function": "smb_block_write",
+  "file": "drivers/input/rmi4/rmi_smbus.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "mtk_drm_of_get_ddp_ep_cid",
+  "file": "drivers/gpu/drm/mediatek/mtk_drm_drv.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "drm/mediatek: Fix device/node reference count leaks in mtk_drm_get_all_drm_priv"
+  ]
+ },
+ {
+  "function": "fsmc_read_page_hwecc",
+  "file": "drivers/mtd/nand/raw/fsmc_nand.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "cxl_fw_prepare",
+  "file": "drivers/cxl/core/memdev.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ib_nl_process_good_resolve_rsp",
+  "file": "drivers/infiniband/core/sa_query.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ma35_nand_read_oob_hwecc",
+  "file": "drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "mtd: rawnand: nuvoton: Fix an error handling path in ma35_nand_chips_init()"
+  ]
+ },
+ {
+  "function": "ma35_nand_read_page_hwecc",
+  "file": "drivers/mtd/nand/raw/nuvoton-ma35d1-nand-controller.c",
+  "status": "LIKELY_FIXED",
+  "exact": [],
+  "partial": [
+   "mtd: rawnand: nuvoton: Fix an error handling path in ma35_nand_chips_init()"
+  ]
+ },
+ {
+  "function": "ib_sa_mcmember_rec_callback",
+  "file": "drivers/infiniband/core/sa_query.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ib_sa_classport_info_rec_callback",
+  "file": "drivers/infiniband/core/sa_query.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ },
+ {
+  "function": "ib_sa_guidinfo_rec_callback",
+  "file": "drivers/infiniband/core/sa_query.c",
+  "status": "FILE_CHANGED",
+  "exact": [],
+  "partial": []
+ }
+]

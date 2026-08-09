@@ -1,0 +1,44 @@
+{
+ "stage1": {
+  "requests": 442,
+  "input_tokens": 534442,
+  "output_tokens": 368802,
+  "total_tokens": 903244
+ },
+ "stage1_retry": {
+  "requests": 44,
+  "input_tokens": 37500,
+  "output_tokens": 27070,
+  "total_tokens": 64570
+ },
+ "stage2": {
+  "requests": 1970,
+  "input_tokens": 3445592,
+  "output_tokens": 928638,
+  "total_tokens": 4374230
+ },
+ "stage3": {
+  "requests": 2085,
+  "input_tokens": 1498727,
+  "output_tokens": 1900978,
+  "total_tokens": 3399705
+ },
+ "review": {
+  "requests": 196,
+  "input_tokens": 194077,
+  "output_tokens": 354479,
+  "total_tokens": 548556
+ },
+ "table6": {
+  "requests": 139,
+  "input_tokens": 34490,
+  "output_tokens": 43403,
+  "total_tokens": 77893
+ },
+ "table7_llmonly": {
+  "requests": 222,
+  "input_tokens": 779716,
+  "output_tokens": 360543,
+  "total_tokens": 1140259
+ }
+}
