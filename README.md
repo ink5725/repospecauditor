@@ -1,4 +1,4 @@
-# SpecAuditor 独立复现
+# SpecAuditor 复现
 
 基于论文 *SpecAuditor: Generating Audit Specifications for LLM-Driven Bug
 Detection*（2025）的独立复现实现。，在 Linux 内核 v6.17-rc3 上
